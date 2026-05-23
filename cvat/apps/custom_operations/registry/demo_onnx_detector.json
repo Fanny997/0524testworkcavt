@@ -1,0 +1,45 @@
+{
+  "name": "Demo ONNX Object Detector",
+  "kind": "model",
+  "description": "Local demo detector with a generated ONNX artifact. It returns a deterministic center bounding box for smoke testing.",
+  "nuclio_function": "local.demo_onnx_detector",
+  "handler": "cvat.apps.custom_operations.local_operations:_demo_onnx_detector",
+  "artifact_builder": "cvat.apps.custom_operations.demo_assets:build_demo_detector_onnx",
+  "artifact_name": "demo_detector.onnx",
+  "input_schema": [
+    {
+      "name": "image",
+      "label": "Images",
+      "type": "file_collection",
+      "required": true,
+      "description": "Upload one or more PNG/JPEG images for demo detection. Files are processed in upload order.",
+      "accept": ["image/png", "image/jpeg"],
+      "min_count": 1
+    },
+    {
+      "name": "threshold",
+      "label": "Confidence threshold",
+      "type": "number",
+      "required": false,
+      "default": 0.5,
+      "minimum": 0.0,
+      "maximum": 1.0,
+      "step": 0.05
+    },
+    {
+      "name": "label",
+      "label": "Label",
+      "type": "string",
+      "required": false,
+      "default": "object",
+      "placeholder": "object"
+    }
+  ],
+  "output_schema": {
+    "type": "collection",
+    "items": {
+      "files": [{ "content_type": "application/json", "kind": "text" }]
+    }
+  },
+  "is_active": true
+}

@@ -1,0 +1,53 @@
+{
+  "name": "示例：图片模糊增强",
+  "kind": "augmentation",
+  "description": "通过 Nuclio 部署的可调用数据增强示例。输入一组图片，按顺序逐张执行高斯模糊，并把增强后的图片保存到工作流输出集合。",
+  "nuclio_function": "sample-blur-augmentation",
+  "input_schema": [
+    {
+      "name": "image",
+      "label": "图片",
+      "type": "file_collection",
+      "required": true,
+      "description": "可以一次选择多张图片。后端会按上传顺序逐张调用 Nuclio 函数。",
+      "accept": ["image/png", "image/jpeg", "image/webp"],
+      "min_count": 1
+    },
+    {
+      "name": "radius",
+      "label": "模糊半径",
+      "type": "number",
+      "required": false,
+      "description": "高斯模糊半径，数值越大越模糊。",
+      "default": 2.0,
+      "minimum": 0.1,
+      "maximum": 20,
+      "step": 0.1
+    },
+    {
+      "name": "format",
+      "label": "输出格式",
+      "type": "select",
+      "required": false,
+      "description": "输出图片格式。",
+      "default": "png",
+      "options": [
+        { "label": "PNG", "value": "png" },
+        { "label": "JPEG", "value": "jpeg" }
+      ]
+    }
+  ],
+  "output_schema": {
+    "type": "collection",
+    "description": "每张输入图片对应一张模糊后的输出图片。"
+  },
+  "nuclio": {
+    "path": "nuclio",
+    "file": "nuclio/function.yaml",
+    "project_name": "cvat",
+    "platform": "local",
+    "network": "cvat_cvat",
+    "create_project": true
+  },
+  "is_active": true
+}

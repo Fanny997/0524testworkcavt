@@ -1,0 +1,82 @@
+// Copyright (C) 2020-2022 Intel Corporation
+// Copyright (C) CVAT.ai Corporation
+//
+// SPDX-License-Identifier: MIT
+
+import React from 'react';
+import { useHistory } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
+import { Row, Col } from 'antd/lib/grid';
+import Space from 'antd/lib/space';
+import { LeftOutlined, MoreOutlined, ThunderboltOutlined } from '@ant-design/icons';
+import Button from 'antd/lib/button';
+import Text from 'antd/lib/typography/Text';
+import TaskActionsComponent from 'components/tasks-page/actions-menu';
+
+import { RQStatus, Task } from 'cvat-core-wrapper';
+import { modelsActions } from 'actions/models-actions';
+import { CombinedState } from 'reducers';
+
+interface DetailsComponentProps {
+    taskInstance: Task;
+    onUpdateTask: (task: Task) => Promise<Task>;
+}
+
+export default function DetailsComponent(props: DetailsComponentProps): JSX.Element {
+    const { taskInstance, onUpdateTask } = props;
+    const history = useHistory();
+    const dispatch = useDispatch();
+    const activeInference = useSelector((state: CombinedState) => state.models.inferences[taskInstance.id]);
+    const inferenceIsRunning = activeInference &&
+        ![RQStatus.FAILED, RQStatus.FINISHED].includes(activeInference.status);
+
+    return (
+        <Row className='cvat-task-top-bar' justify='space-between' align='middle'>
+            <Col>
+                {taskInstance.projectId ? (
+                    <Button
+                        className='cvat-back-to-project-button'
+                        onClick={() => history.push(`/projects/${taskInstance.projectId}`)}
+                        type='link'
+                        size='large'
+                    >
+                        <LeftOutlined />
+                        Back to project
+                    </Button>
+                ) : (
+                    <Button
+                        className='cvat-back-to-tasks-button'
+                        onClick={() => history.push('/tasks')}
+                        type='link'
+                        size='large'
+                    >
+                        <LeftOutlined />
+                        Back to tasks
+                    </Button>
+                )}
+            </Col>
+            <Col>
+                <Space>
+                    <Button
+                        size='middle'
+                        icon={<ThunderboltOutlined />}
+                        disabled={inferenceIsRunning}
+                        onClick={() => dispatch(modelsActions.showRunModelDialog(taskInstance))}
+                    >
+                        Run model
+                    </Button>
+                    <TaskActionsComponent
+                        taskInstance={taskInstance}
+                        onUpdateTask={onUpdateTask}
+                        triggerElement={(
+                            <Button size='middle' className='cvat-task-page-actions-button cvat-actions-menu-button'>
+                                <Text className='cvat-text-color'>Actions</Text>
+                                <MoreOutlined className='cvat-menu-icon' />
+                            </Button>
+                        )}
+                    />
+                </Space>
+            </Col>
+        </Row>
+    );
+}

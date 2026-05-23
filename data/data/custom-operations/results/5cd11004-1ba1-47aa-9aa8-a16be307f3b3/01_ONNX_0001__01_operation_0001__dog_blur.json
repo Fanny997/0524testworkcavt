@@ -1,0 +1,23 @@
+{
+  "type": "object_detection",
+  "model": {
+    "format": "onnx",
+    "path": "/opt/nuclio/models/foreground_detector.onnx",
+    "input": "features",
+    "output": "detections"
+  },
+  "input": {
+    "name": "01_operation_0001__dog_blur.png",
+    "width": 171,
+    "height": 166
+  },
+  "parameters": {
+    "threshold": 180,
+    "min_area": 0.002
+  },
+  "batch": {
+    "index": 0,
+    "count": 1
+  },
+  "detections": []
+}

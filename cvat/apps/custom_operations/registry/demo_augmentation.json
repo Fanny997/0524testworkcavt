@@ -1,0 +1,49 @@
+{
+  "name": "Demo Image Augmentation",
+  "kind": "augmentation",
+  "description": "Local demo augmentation: grayscale, flip, invert, or blur uploaded images.",
+  "nuclio_function": "local.demo_augmentation",
+  "handler": "cvat.apps.custom_operations.local_operations:_demo_augmentation",
+  "input_schema": [
+    {
+      "name": "image",
+      "label": "Images",
+      "type": "file_collection",
+      "required": true,
+      "description": "Upload one or more PNG/JPEG images to augment. Files are processed in upload order.",
+      "accept": ["image/png", "image/jpeg"],
+      "min_count": 1
+    },
+    {
+      "name": "operation",
+      "label": "Operation",
+      "type": "select",
+      "required": true,
+      "default": "grayscale",
+      "options": [
+        { "label": "Grayscale", "value": "grayscale" },
+        { "label": "Flip horizontal", "value": "flip_horizontal" },
+        { "label": "Invert", "value": "invert" },
+        { "label": "Blur", "value": "blur" }
+      ]
+    },
+    {
+      "name": "intensity",
+      "label": "Intensity",
+      "type": "number",
+      "required": false,
+      "default": 1.0,
+      "minimum": 0.1,
+      "maximum": 2.0,
+      "step": 0.1,
+      "description": "Used by blur; ignored by other demo operations."
+    }
+  ],
+  "output_schema": {
+    "type": "collection",
+    "items": {
+      "files": [{ "content_type": "image/png", "kind": "image" }]
+    }
+  },
+  "is_active": true
+}

@@ -1,0 +1,182 @@
+// Copyright (C) CVAT.ai Corporation
+//
+// SPDX-License-Identifier: MIT
+
+@import 'base';
+
+.cvat-workflows-page {
+    @include cvat-resource-page;
+    padding: $grid-unit-size * 2;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: $grid-unit-size * 2;
+}
+
+.cvat-workflows-page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: $grid-unit-size * 2;
+
+    .cvat-title {
+        padding-top: 0;
+    }
+}
+
+.cvat-workflows-layout {
+    flex: 1;
+    min-height: 0;
+}
+
+.cvat-workflows-panel {
+    height: 100%;
+    min-height: 0;
+    border: 1px solid $border-color-1;
+    border-radius: $border-radius-base;
+    background: $background-color-1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.cvat-workflows-list {
+    padding: 0 $grid-unit-size $grid-unit-size $grid-unit-size;
+    overflow: auto;
+    max-height: calc(100vh - #{$header-height} - #{$grid-unit-size * 20});
+}
+
+.cvat-workflow-operation-row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: $grid-unit-size * 1.5;
+    margin-bottom: $grid-unit-size;
+    border: 1px solid $border-color-1;
+    border-radius: $border-radius-base;
+    background: $background-color-1;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: $box-shadow-base;
+    }
+}
+
+.cvat-workflow-operation-row-selected {
+    border-color: $border-color-hover;
+    box-shadow: $box-shadow-base;
+}
+
+.cvat-workflow-operation-row-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $grid-unit-size;
+    margin-bottom: $grid-unit-size * 0.5;
+}
+
+.cvat-workflow-builder-panel {
+    padding: $grid-unit-size * 2;
+    overflow: hidden;
+}
+
+.cvat-workflow-builder-header {
+    display: flex;
+    justify-content: space-between;
+    gap: $grid-unit-size * 2;
+    align-items: flex-start;
+}
+
+.cvat-workflow-builder-title {
+    font-size: 18px;
+}
+
+.cvat-workflow-builder-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $grid-unit-size * 0.5;
+    margin-top: $grid-unit-size * 0.5;
+}
+
+.cvat-workflow-builder-form {
+    overflow: auto;
+    min-height: 0;
+    max-height: calc(100vh - #{$header-height} - #{$grid-unit-size * 38});
+    padding-right: $grid-unit-size;
+}
+
+.cvat-workflow-field {
+    margin-bottom: $grid-unit-size * 2;
+}
+
+.cvat-workflow-field-label {
+    display: flex;
+    align-items: center;
+    gap: $grid-unit-size;
+    margin-bottom: $grid-unit-size * 0.5;
+}
+
+.cvat-workflow-builder-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: $grid-unit-size * 2;
+}
+
+.cvat-workflow-step-list {
+    overflow: auto;
+    max-height: calc(100vh - #{$header-height} - #{$grid-unit-size * 48});
+    padding-right: $grid-unit-size;
+}
+
+.cvat-workflow-step {
+    border: 1px solid $border-color-1;
+    border-radius: $border-radius-base;
+    padding: $grid-unit-size * 1.5;
+    margin-bottom: $grid-unit-size;
+    background: $background-color-1;
+}
+
+.cvat-workflow-step-failed {
+    border-color: $danger-icon-color;
+}
+
+.cvat-workflow-step-header {
+    display: flex;
+    justify-content: space-between;
+    gap: $grid-unit-size;
+    align-items: center;
+}
+
+.cvat-workflow-step-name {
+    border: none;
+    background: transparent;
+    padding: 0;
+    text-align: left;
+    cursor: pointer;
+}
+
+.cvat-workflow-step-result {
+    margin-top: $grid-unit-size;
+    max-height: $grid-unit-size * 24;
+    overflow: auto;
+    background: $background-color-2;
+    border-radius: $border-radius-base;
+    padding: $grid-unit-size;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+.cvat-workflow-drawer-form {
+    display: flex;
+    flex-direction: column;
+    gap: $grid-unit-size;
+}
+
+.cvat-workflows-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

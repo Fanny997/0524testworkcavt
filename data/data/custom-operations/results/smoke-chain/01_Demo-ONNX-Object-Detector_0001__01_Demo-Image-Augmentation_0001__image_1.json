@@ -1,0 +1,24 @@
+{
+  "type": "object_detection",
+  "runtime": "local-demo",
+  "model_artifact": "demo_detector.onnx",
+  "model_artifact_url": "http://testserver/api/custom-operations/definitions/2/artifact?signature=38f59e40-2b4e-43f3-b91c-6eba9019cd72:1wLOEL:d9XVDM3MCfi09wWg4a25YgkuJGBILlzXiFOcoeS_ZNc",
+  "input": {
+    "name": "01_Demo-Image-Augmentation_0001__image_1.png",
+    "width": 8,
+    "height": 8
+  },
+  "threshold": 0.5,
+  "detections": [
+    {
+      "label": "demo-object",
+      "confidence": 0.9,
+      "box": {
+        "x1": 2.0,
+        "y1": 2.0,
+        "x2": 6.0,
+        "y2": 6.0
+      }
+    }
+  ]
+}

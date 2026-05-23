@@ -1,0 +1,10 @@
+[2026-05-23 23:19:22,820] DEBUG cvat.apps.custom_operations.registry_loader: Custom operation registry sync skipped because database is not ready: relation "custom_operations_customoperationdefinition" does not exist
+LINE 1: ...tions_customoperationdefinition"."is_active" FROM "custom_op...
+                                                             ^
+
+[2026-05-23 23:19:25,342] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-blur-augmentation from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-blur-augmentation\manifest.json
+[2026-05-23 23:19:25,355] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-onnx-detector from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-onnx-detector\manifest.json
+[2026-05-23 23:19:33,642] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-blur-augmentation from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-blur-augmentation\manifest.json
+[2026-05-23 23:19:33,651] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-onnx-detector from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-onnx-detector\manifest.json
+[2026-05-23 23:19:41,295] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-blur-augmentation from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-blur-augmentation\manifest.json
+[2026-05-23 23:19:41,306] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-onnx-detector from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-onnx-detector\manifest.json

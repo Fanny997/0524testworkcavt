@@ -1,0 +1,49 @@
+metadata:
+  # 必须和 manifest.json 里的 nuclio_function 一致。
+  name: sample-onnx-detector
+  namespace: cvat
+  annotations:
+    name: 示例：本地 ONNX 目标检测
+    type: detector
+    spec: |
+      [
+        { "id": 0, "name": "foreground", "type": "rectangle" }
+      ]
+
+spec:
+  description: 示例：本地 ONNX 目标检测
+  runtime: python:3.10
+  handler: main:handler
+  eventTimeout: 60s
+
+  build:
+    image: cvat.sample.onnx.detector
+    # 先执行 custom_operations_registry/base-images/nuclio-onnxruntime/Dockerfile
+    # 构建这个基础镜像。真实 ONNX 模型后续不需要在 function 构建阶段重复下载 onnxruntime。
+    baseImage: cvat/nuclio-onnxruntime:dev
+    directives:
+      preCopy:
+        # Nuclio 构建阶段会安装 nuclio-sdk/msgpack，需要 root 权限。
+        - kind: USER
+          value: root
+        - kind: WORKDIR
+          value: /opt/nuclio
+        # 清掉 cvat/server:dev 继承来的 backend_entrypoint.sh，使用 Nuclio processor 启动函数。
+        - kind: ENTRYPOINT
+          value: '["/usr/local/bin/processor"]'
+
+  triggers:
+    myHttpTrigger:
+      kind: http
+      numWorkers: 2
+      workerAvailabilityTimeoutMilliseconds: 10000
+      attributes:
+        # 32MB。大图或多输入时可以按需调大。
+        maxRequestBodySize: 33554432
+
+  platform:
+    attributes:
+      restartPolicy:
+        name: always
+        maximumRetryCount: 3
+      mountMode: volume

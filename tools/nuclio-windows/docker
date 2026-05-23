@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+set -e
+
+real_docker="$(command -v docker.exe)"
+if [[ -z "${real_docker}" ]]; then
+    echo "docker.exe was not found in PATH." >&2
+    exit 1
+fi
+
+args=()
+expect_dockerfile=0
+
+for arg in "$@"; do
+    if [[ "${arg}" == C:tmpnuclio* ]]; then
+        suffix="${arg#C:tmpnuclio}"
+        arg="C:/tmp/nuclio/${suffix}"
+    fi
+
+    if [[ "${expect_dockerfile}" == "1" ]]; then
+        if [[ "${arg}" == *Dockerfile.* ]]; then
+            arg="Dockerfile.${arg##*Dockerfile.}"
+        else
+            arg="$(basename "${arg}")"
+        fi
+        expect_dockerfile=0
+    fi
+
+    args+=("${arg}")
+
+    if [[ "${arg}" == "-f" || "${arg}" == "--file" ]]; then
+        expect_dockerfile=1
+    fi
+done
+
+exec "${real_docker}" "${args[@]}"

@@ -1,0 +1,52 @@
+{
+  "name": "示例：本地 ONNX 目标检测",
+  "kind": "model",
+  "description": "通过 Nuclio 部署的完整本地 ONNX 目标检测示例。模型文件随示例一起放在 nuclio/models/foreground_detector.onnx，函数启动时使用 onnxruntime 加载并执行推理。",
+  "nuclio_function": "sample-onnx-detector",
+  "input_schema": [
+    {
+      "name": "image",
+      "label": "图片",
+      "type": "file_collection",
+      "required": true,
+      "description": "可以一次选择多张图片。后端会按上传顺序逐张调用 Nuclio 函数。",
+      "accept": ["image/png", "image/jpeg", "image/webp"],
+      "min_count": 1
+    },
+    {
+      "name": "threshold",
+      "label": "亮度阈值",
+      "type": "integer",
+      "required": false,
+      "description": "0 到 255。示例前处理会用该阈值找前景区域，再把检测特征送入本地 ONNX 模型。",
+      "default": 180,
+      "minimum": 0,
+      "maximum": 255,
+      "step": 1
+    },
+    {
+      "name": "min_area",
+      "label": "最小面积占比",
+      "type": "number",
+      "required": false,
+      "description": "前景框面积低于该占比时不输出检测框。",
+      "default": 0.002,
+      "minimum": 0,
+      "maximum": 1,
+      "step": 0.001
+    }
+  ],
+  "output_schema": {
+    "type": "collection",
+    "description": "每张输入图片对应一个 JSON 检测结果文件。"
+  },
+  "nuclio": {
+    "path": "nuclio",
+    "file": "nuclio/function.yaml",
+    "project_name": "cvat",
+    "platform": "local",
+    "network": "cvat_cvat",
+    "create_project": true
+  },
+  "is_active": true
+}
