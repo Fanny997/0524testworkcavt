@@ -90,11 +90,8 @@ services:
       cvat_opa:
         condition:
           service_started
-      nuclio:
-        condition: service_started
     environment:
       <<: [*backend-env, *clickhouse-env]
-      CVAT_SERVERLESS: "1"
       DJANGO_MODWSGI_EXTRA_ARGS: ''
       ALLOWED_HOSTS: '*'
       ADAPTIVE_AUTO_ANNOTATION: 'false'

@@ -23,17 +23,10 @@ services:
 
   cvat_server:
     environment:
-      CVAT_SERVERLESS: "1"
-      NUCLIO_HOST: "nuclio"
-      NUCLIO_PORT: "8070"
-    volumes:
-      - ./components/serverless:/home/django/cvat/apps/serverless
+      CVAT_SERVERLESS: 1
     extra_hosts:
       - "host.docker.internal:host-gateway"
 
   cvat_worker_annotation:
     extra_hosts:
       - "host.docker.internal:host-gateway"
-
-networks:
-  cvat:

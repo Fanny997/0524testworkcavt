@@ -68,7 +68,7 @@ class Command(BaseCommand):
             nuclio_tmp.mkdir(parents=True, exist_ok=True)
             env["TMP"] = "C:/tmp/nuclio"
             env["TEMP"] = "C:/tmp/nuclio"
-            docker_wrapper_dir = Path(settings.BASE_DIR) / "tools" / "nuclio-windows"
+            docker_wrapper_dir = Path(settings.BASE_DIR) / "tools" / "nuclio-windows-bak"
             if docker_wrapper_dir.exists():
                 env["PATH"] = str(docker_wrapper_dir) + os.pathsep + env.get("PATH", "")
         return env
@@ -118,7 +118,7 @@ class Command(BaseCommand):
 
         if nuclio_config.get("create_project", True):
             self._run(
-                [nuctl, "create", "project", project_name, "--platform", platform],
+                [nuctl, "create",   "project", project_name, "--platform", platform],
                 dry_run=options["dry_run"],
                 check=False,
             )

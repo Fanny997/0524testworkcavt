@@ -301,8 +301,8 @@ def main() -> int:
     backend_env = build_backend_env()
 
     backend_proc = spawn_window(
-        "Launch local Django backend on 127.0.0.1:7000",
-        [PYTHON, "manage.py", "runserver", "--noreload", "--insecure", "127.0.0.1:7000"],
+        "Launch local Django backend on 0.0.0.0:7000",
+        [PYTHON, "manage.py", "runserver", "--noreload", "--insecure", "0.0.0.0:7000"],
         env=backend_env,
     )
 
