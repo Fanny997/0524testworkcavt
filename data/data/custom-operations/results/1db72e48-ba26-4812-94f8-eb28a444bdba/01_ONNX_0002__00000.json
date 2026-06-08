@@ -1,0 +1,36 @@
+{
+  "type": "object_detection",
+  "model": {
+    "format": "onnx",
+    "path": "/opt/nuclio/models/foreground_detector.onnx",
+    "input": "features",
+    "output": "detections"
+  },
+  "input": {
+    "name": "00000.png",
+    "width": 1024,
+    "height": 768
+  },
+  "parameters": {
+    "threshold": 180,
+    "min_area": 0.002
+  },
+  "batch": {
+    "index": 1,
+    "count": 2
+  },
+  "detections": [
+    {
+      "label": "foreground",
+      "label_id": 0,
+      "type": "rectangle",
+      "points": [
+        13.0,
+        36.0,
+        1016.0,
+        768.0
+      ],
+      "confidence": 0.02621234580874443
+    }
+  ]
+}

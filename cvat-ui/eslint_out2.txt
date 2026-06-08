@@ -1,0 +1,6 @@
+
+d:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat-ui\src\components\custom-workflows-page\custom-workflows-page.tsx
+  464:30  error  Do not nest ternary expressions  no-nested-ternary
+
+✖ 1 problem (1 error, 0 warnings)
+

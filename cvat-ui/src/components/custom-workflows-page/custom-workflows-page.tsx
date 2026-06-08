@@ -15,7 +15,6 @@ import {
     SerializedCustomOperationField,
 } from 'cvat-core-wrapper';
 import notification from 'antd/lib/notification';
-import { Row, Col } from 'antd/lib/grid';
 import Tabs from 'antd/lib/tabs';
 import Button from 'antd/lib/button';
 import Input from 'antd/lib/input';
@@ -31,8 +30,31 @@ import Divider from 'antd/lib/divider';
 import Spin from 'antd/lib/spin';
 import Text from 'antd/lib/typography/Text';
 import Tooltip from 'antd/lib/tooltip';
+import Modal from 'antd/lib/modal';
+import Image from 'antd/lib/image';
+import Pagination from 'antd/lib/pagination';
+import Descriptions from 'antd/lib/descriptions';
 import {
-    UploadOutlined, PlusOutlined, ReloadOutlined, PlayCircleOutlined, DeleteOutlined,
+    UploadOutlined,
+    PlusOutlined,
+    ReloadOutlined,
+    PlayCircleOutlined,
+    DeleteOutlined,
+    DownloadOutlined,
+    EyeOutlined,
+    FileTextOutlined,
+    FileImageOutlined,
+    FileOutlined,
+    EditOutlined,
+    DownOutlined,
+    UpOutlined,
+    UndoOutlined,
+    FilePdfOutlined,
+    FileExcelOutlined,
+    FilePptOutlined,
+    FileZipOutlined,
+    FileWordOutlined,
+    FileUnknownOutlined,
 } from '@ant-design/icons';
 
 type WorkflowStepStatus = 'idle' | 'running' | 'success' | 'failed';
@@ -115,6 +137,92 @@ function prettyJSON(value: any): string {
         return String(value);
     }
 }
+
+// ---- 输出文件相关类型与工具 ----
+
+interface OutputFileItem {
+    name: string;
+    url: string;
+    type: 'image' | 'text' | 'other';
+    mimeType?: string;
+    size?: number;
+}
+
+const IMAGE_EXTENSIONS = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.webp', '.svg', '.ico'];
+const TEXT_EXTENSIONS = ['.txt', '.json', '.csv', '.xml', '.yaml', '.yml', '.md',
+    '.log', '.py', '.js', '.ts', '.html', '.css', '.scss', '.sh', '.bat', '.cfg', '.ini'];
+
+function detectFileType(filename: string, mimeType?: string): OutputFileItem['type'] {
+    const dotIndex = filename.lastIndexOf('.');
+    const ext = dotIndex >= 0 ? filename.slice(dotIndex).toLowerCase() : '';
+    if (IMAGE_EXTENSIONS.includes(ext)) return 'image';
+    if (TEXT_EXTENSIONS.includes(ext)) return 'text';
+    if (mimeType) {
+        if (mimeType.startsWith('image/')) return 'image';
+        if (mimeType.startsWith('text/')) return 'text';
+    }
+    return 'other';
+}
+
+function isString(value: any): value is string {
+    return typeof value === 'string';
+}
+
+function looksLikeURL(value: string): boolean {
+    return /^https?:\/\//i.test(value) || value.startsWith('/');
+}
+
+function resolveDownloadURL(rawUrl: string): string {
+    if (/^https?:\/\//i.test(rawUrl)) return rawUrl;
+    const origin = window.location.origin;
+    return rawUrl.startsWith('/') ? `${origin}${rawUrl}` : `${origin}/${rawUrl}`;
+}
+
+function extractOutputFiles(data: any): OutputFileItem[] {
+    const files: OutputFileItem[] = [];
+    const seen = new Set<string>();
+
+    function walk(obj: any): void {
+        if (!obj || typeof obj !== 'object') return;
+        if (Array.isArray(obj)) {
+            obj.forEach(walk);
+            return;
+        }
+
+        // 尝试识别文件对象的常见字段
+        const name = obj.name || obj.filename || obj.file_name || obj.key;
+        const url = obj.url || obj.path || obj.download_url || obj.href;
+        const mimeType = obj.mime_type || obj.mimeType || obj.type || obj.content_type;
+
+        if (isString(name) && isString(url) && looksLikeURL(url) && !seen.has(url)) {
+            seen.add(url);
+            files.push({
+                name,
+                url,
+                type: detectFileType(name, mimeType),
+                mimeType,
+                size: obj.size ?? obj.file_size,
+            });
+        }
+
+        // 遍历嵌套结构：output_collection / results / items / files 等
+        const nested = obj.output_collection || obj.results || obj.items ||
+            obj.data || obj.files || obj.outputs;
+        if (nested) walk(nested);
+
+        // 也检查所有属性值
+        Object.values(obj).forEach((val) => {
+            if (val && typeof val === 'object' && val !== obj && !seen.has(JSON.stringify(val))) {
+                walk(val);
+            }
+        });
+    }
+
+    walk(data);
+    return files;
+}
+
+const OUTPUT_PAGE_SIZE = 15; // 每页 15 张图片（3 行 x 5 列）
 
 function prepareStepValues(
     values: Record<string, any>,
@@ -313,6 +421,290 @@ function OperationFieldEditor(props: {
     );
 }
 
+// ---- 图片输出画廊 ----
+
+function ImageOutputGallery(props: {
+    images: OutputFileItem[];
+}): JSX.Element {
+    const { images } = props;
+    const [currentPage, setCurrentPage] = useState(1);
+    const needPagination = images.length > OUTPUT_PAGE_SIZE;
+    const startIdx = (currentPage - 1) * OUTPUT_PAGE_SIZE;
+    const pageImages = needPagination ? images.slice(startIdx, startIdx + OUTPUT_PAGE_SIZE) : images;
+
+    return (
+        <>
+            <Image.PreviewGroup>
+                <div className='cvat-workflow-image-grid'>
+                    {pageImages.map((img) => (
+                        <div key={img.url} className='cvat-workflow-image-item'>
+                            <Image
+                                src={img.url}
+                                alt={img.name}
+                                fallback='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHJ4PSI0IiBmaWxsPSIjZjBmMGYwIi8+PHRleHQgeD0iMjQiIHk9IjI4IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjYmZiZmJmIiBmb250LXNpemU9IjEyIj7lm77niYc8L3RleHQ+PC9zdmc+'
+                                preview={{ mask: <EyeOutlined /> }}
+                            />
+                            <div className='cvat-workflow-image-name'>
+                                <Tooltip title={img.name}>
+                                    {img.name}
+                                </Tooltip>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </Image.PreviewGroup>
+            {needPagination ? (
+                <div className='cvat-workflow-output-pagination'>
+                    <Pagination
+                        current={currentPage}
+                        pageSize={OUTPUT_PAGE_SIZE}
+                        total={images.length}
+                        showSizeChanger={false}
+                        size='small'
+                        onChange={(page) => setCurrentPage(page)}
+                    />
+                </div>
+            ) : null}
+        </>
+    );
+}
+
+// ---- 文本文件展示 ----
+
+function TextOutputFiles(props: {
+    files: OutputFileItem[];
+    onViewContent: (file: OutputFileItem) => void;
+}): JSX.Element {
+    const { files, onViewContent } = props;
+    const [currentPage, setCurrentPage] = useState(1);
+    const needPagination = files.length > 10;
+    const startIdx = (currentPage - 1) * 10;
+    const pageFiles = needPagination ? files.slice(startIdx, startIdx + 10) : files;
+
+    const handleDownload = (e: React.MouseEvent, url: string, name: string) => {
+        e.stopPropagation();
+        const downloadUrl = resolveDownloadURL(url);
+        const anchor = document.createElement('a');
+        anchor.href = downloadUrl;
+        anchor.download = name;
+        anchor.target = '_blank';
+        anchor.rel = 'noopener noreferrer';
+        document.body.appendChild(anchor);
+        anchor.click();
+        document.body.removeChild(anchor);
+    };
+
+    const fileIcon = (fileName: string) => {
+        const ext = fileName.slice(fileName.lastIndexOf('.')).toLowerCase();
+        if (['.json', '.xml', '.yaml', '.yml'].includes(ext)) {
+            return <FileTextOutlined className='cvat-workflow-file-card-icon' />;
+        }
+        if (['.py', '.js', '.ts', '.sh', '.bat'].includes(ext)) {
+            return <FileTextOutlined className='cvat-workflow-file-card-icon' style={{ color: '#722ed1' }} />;
+        }
+        if (['.pdf'].includes(ext)) {
+            return <FilePdfOutlined className='cvat-workflow-file-card-icon' style={{ color: '#ff4d4f' }} />;
+        }
+        if (['.xlsx', '.xls', '.csv'].includes(ext)) {
+            return <FileExcelOutlined className='cvat-workflow-file-card-icon' style={{ color: '#52c41a' }} />;
+        }
+        if (['.docx', '.doc'].includes(ext)) {
+            return <FileWordOutlined className='cvat-workflow-file-card-icon' style={{ color: '#1890ff' }} />;
+        }
+        if (['.pptx', '.ppt'].includes(ext)) {
+            return <FilePptOutlined className='cvat-workflow-file-card-icon' style={{ color: '#fa8c16' }} />;
+        }
+        if (['.zip', '.gz', '.tar', '.rar', '.7z'].includes(ext)) {
+            return <FileZipOutlined className='cvat-workflow-file-card-icon' style={{ color: '#8c8c8c' }} />;
+        }
+        if (['.txt', '.log', '.md', '.cfg', '.ini'].includes(ext)) {
+            return <FileTextOutlined className='cvat-workflow-file-card-icon' />;
+        }
+        return <FileUnknownOutlined className='cvat-workflow-file-card-icon' />;
+    };
+
+    return (
+        <>
+            <div className='cvat-workflow-text-files'>
+                {pageFiles.map((file) => (
+                    <div key={file.url} className='cvat-workflow-file-card'>
+                        <div className='cvat-workflow-file-card-left'>
+                            {fileIcon(file.name)}
+                            <Tooltip title={file.name}>
+                                <span className='cvat-workflow-file-card-name'>{file.name}</span>
+                            </Tooltip>
+                        </div>
+                        <Space size='small'>
+                            <Button
+                                size='small'
+                                type='link'
+                                icon={<EyeOutlined />}
+                                onClick={() => onViewContent(file)}
+                            >
+                                查看
+                            </Button>
+                            <Button
+                                size='small'
+                                type='link'
+                                icon={<DownloadOutlined />}
+                                onClick={(e) => handleDownload(e, file.url, file.name)}
+                            >
+                                下载
+                            </Button>
+                        </Space>
+                    </div>
+                ))}
+            </div>
+            {needPagination ? (
+                <div className='cvat-workflow-output-pagination'>
+                    <Pagination
+                        current={currentPage}
+                        pageSize={10}
+                        total={files.length}
+                        showSizeChanger={false}
+                        size='small'
+                        onChange={(page) => setCurrentPage(page)}
+                    />
+                </div>
+            ) : null}
+        </>
+    );
+}
+
+// ---- 最终输出结果 Tab 内容 ----
+
+function FinalOutputTabContent(props: {
+    workflow: WorkflowStep[];
+}): JSX.Element {
+    const { workflow } = props;
+
+    const outputData = useMemo(() => {
+        const allFiles: OutputFileItem[] = [];
+
+        workflow.forEach((step) => {
+            if (!step.result) return;
+            const files = extractOutputFiles(step.result);
+            allFiles.push(...files);
+        });
+
+        // 去重
+        const unique = new Map<string, OutputFileItem>();
+        allFiles.forEach((f) => { unique.set(f.url, f); });
+        const deduplicated = Array.from(unique.values());
+
+        return {
+            images: deduplicated.filter((f) => f.type === 'image'),
+            texts: deduplicated.filter((f) => f.type === 'text'),
+            others: deduplicated.filter((f) => f.type === 'other'),
+        };
+    }, [workflow]);
+
+    const [viewingFile, setViewingFile] = useState<OutputFileItem | null>(null);
+    const [fileContent, setFileContent] = useState<string>('');
+    const [contentLoading, setContentLoading] = useState(false);
+
+    const handleViewContent = useCallback(async (file: OutputFileItem) => {
+        setViewingFile(file);
+        setContentLoading(true);
+        try {
+            const response = await fetch(file.url);
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+            const text = await response.text();
+            setFileContent(text);
+        } catch (error) {
+            setFileContent(`无法加载文件内容: ${String(error)}`);
+        } finally {
+            setContentLoading(false);
+        }
+    }, []);
+
+    const handleCloseContent = useCallback(() => {
+        setViewingFile(null);
+        setFileContent('');
+    }, []);
+
+    const hasImages = outputData.images.length > 0;
+    const hasTexts = outputData.texts.length > 0;
+    const hasOthers = outputData.others.length > 0;
+    const hasAnyFiles = hasImages || hasTexts || hasOthers;
+
+    // 没有任何文件 → 空状态
+    if (!hasAnyFiles) {
+        return (
+            <div className='cvat-workflow-output-container'>
+                <Empty description='暂无输出结果，请先运行工作流步骤' />
+            </div>
+        );
+    }
+
+    return (
+        <div className='cvat-workflow-output-container'>
+            <div className='cvat-workflow-output-content'>
+                {hasImages ? (
+                    <div style={{ marginBottom: 24 }}>
+                        <div className='cvat-workflow-output-header' style={{ paddingLeft: 0, paddingTop: 0 }}>
+                            <Space>
+                                <FileImageOutlined style={{ color: '#2ba471' }} />
+                                <Text strong>图片 ({outputData.images.length})</Text>
+                            </Space>
+                        </div>
+                        <ImageOutputGallery images={outputData.images} />
+                    </div>
+                ) : null}
+
+                {hasTexts ? (
+                    <div style={{ marginBottom: hasOthers ? 24 : 0 }}>
+                        <div className='cvat-workflow-output-header' style={{ paddingLeft: 0, paddingTop: 0 }}>
+                            <Space>
+                                <FileTextOutlined style={{ color: '#0052d9' }} />
+                                <Text strong>文本文件 ({outputData.texts.length})</Text>
+                            </Space>
+                        </div>
+                        <TextOutputFiles
+                            files={outputData.texts}
+                            onViewContent={handleViewContent}
+                        />
+                    </div>
+                ) : null}
+
+                {hasOthers ? (
+                    <div>
+                        <div className='cvat-workflow-output-header' style={{ paddingLeft: 0, paddingTop: 0 }}>
+                            <Space>
+                                <FileOutlined style={{ color: '#8c8c8c' }} />
+                                <Text strong>其他文件 ({outputData.others.length})</Text>
+                            </Space>
+                        </div>
+                        <TextOutputFiles
+                            files={outputData.others}
+                            onViewContent={handleViewContent}
+                        />
+                    </div>
+                ) : null}
+            </div>
+
+            <Modal
+                title={viewingFile?.name || '文件内容'}
+                open={!!viewingFile}
+                onCancel={handleCloseContent}
+                footer={null}
+                width={720}
+                destroyOnClose
+            >
+                {contentLoading ? (
+                    <div style={{ textAlign: 'center', padding: 48 }}>
+                        <Spin />
+                    </div>
+                ) : (
+                    <pre className='cvat-workflow-text-content'>{fileContent}</pre>
+                )}
+            </Modal>
+        </div>
+    );
+}
+
 export default function CustomWorkflowsPage(): JSX.Element {
     const history = useHistory();
     const core = getCore();
@@ -341,6 +733,105 @@ export default function CustomWorkflowsPage(): JSX.Element {
     const selectedOperationIdRef = useRef<number | null>(null);
     const allowManualRegistration = false;
 
+    // 步骤详情弹窗
+    const [stepDetailVisible, setStepDetailVisible] = useState(false);
+    const [selectedStepIndex, setSelectedStepIndex] = useState<number | null>(null);
+
+    // 步骤结果展开/折叠状态
+    const [expandedResults, setExpandedResults] = useState<Set<string>>(new Set());
+
+    // 左右区域拖动调整宽度
+    const resizerRef = useRef<HTMLDivElement>(null);
+    const [leftWidth, setLeftWidth] = useState(35); // 百分比
+    const [isResizing, setIsResizing] = useState(false);
+
+    const handleResizerMouseDown = useCallback((e: React.MouseEvent) => {
+        e.preventDefault();
+        setIsResizing(true);
+    }, []);
+
+    useEffect(() => {
+        if (!isResizing) return;
+
+        document.body.style.userSelect = 'none';
+        document.body.style.cursor = 'col-resize';
+
+        const handleMouseMove = (e: MouseEvent) => {
+            const layout = document.querySelector('.cvat-workflows-layout');
+            if (!layout) return;
+            const rect = layout.getBoundingClientRect();
+            const newWidth = ((e.clientX - rect.left) / rect.width) * 100;
+            setLeftWidth(Math.max(22, Math.min(55, newWidth)));
+        };
+
+        const handleMouseUp = () => {
+            setIsResizing(false);
+            document.body.style.userSelect = '';
+            document.body.style.cursor = '';
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('mouseup', handleMouseUp);
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('mouseup', handleMouseUp);
+            document.body.style.userSelect = '';
+            document.body.style.cursor = '';
+        };
+    }, [isResizing]);
+
+    const toggleResultExpand = useCallback((stepId: string) => {
+        setExpandedResults((prev) => {
+            const next = new Set(prev);
+            if (next.has(stepId)) {
+                next.delete(stepId);
+            } else {
+                next.add(stepId);
+            }
+            return next;
+        });
+    }, []);
+
+    // 右侧上下区域拖动调整高度
+    const topResizerRef = useRef<HTMLDivElement>(null);
+    const [topHeight, setTopHeight] = useState(50); // 百分比
+    const [isTopResizing, setIsTopResizing] = useState(false);
+
+    const handleTopResizerMouseDown = useCallback((e: React.MouseEvent) => {
+        e.preventDefault();
+        setIsTopResizing(true);
+    }, []);
+
+    useEffect(() => {
+        if (!isTopResizing) return;
+
+        document.body.style.userSelect = 'none';
+        document.body.style.cursor = 'row-resize';
+
+        const handleMouseMove = (e: MouseEvent) => {
+            const builderPanel = document.querySelector('.cvat-workflow-builder-panel');
+            if (!builderPanel) return;
+            const rect = builderPanel.getBoundingClientRect();
+            const newPercent = ((e.clientY - rect.top) / rect.height) * 100;
+            setTopHeight(Math.max(20, Math.min(80, newPercent)));
+        };
+
+        const handleMouseUp = () => {
+            setIsTopResizing(false);
+            document.body.style.userSelect = '';
+            document.body.style.cursor = '';
+        };
+
+        window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener('mouseup', handleMouseUp);
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener('mouseup', handleMouseUp);
+            document.body.style.userSelect = '';
+            document.body.style.cursor = '';
+        };
+    }, [isTopResizing]);
+
     useEffect(() => {
         selectedOperationIdRef.current = selectedOperationId;
     }, [selectedOperationId]);
@@ -367,17 +858,26 @@ export default function CustomWorkflowsPage(): JSX.Element {
             setAugmentations(augmentationOps);
 
             const list = selectedKind === 'model' ? modelOps : augmentationOps;
-            const currentSelection = selectedOperationIdRef.current;
-            const nextOperation = currentSelection ? list.find((operation) => operation.id === currentSelection) : null;
-            const fallbackOperation = nextOperation || list[0] || null;
-            if (fallbackOperation) {
-                setSelectedOperationId(fallbackOperation.id);
-                if (!nextOperation) {
-                    setEditorValues(buildDefaultValues(fallbackOperation));
+
+            // 首次加载时自动选择第一个操作
+            if (!initialLoadDoneRef.current) {
+                const firstOp = list[0] || null;
+                if (firstOp) {
+                    setSelectedOperationId(firstOp.id);
+                    setEditorValues(buildDefaultValues(firstOp));
+                    initialLoadDoneRef.current = true;
                 }
             } else {
-                setSelectedOperationId(null);
-                setEditorValues({});
+                // 切换 tab 时：自动选择该 tab 的第一个操作
+                // 不清空 workflow，只切换当前显示的操作
+                const firstOp = list[0] || null;
+                if (firstOp) {
+                    setSelectedOperationId(firstOp.id);
+                    setEditorValues(buildDefaultValues(firstOp));
+                } else {
+                    setSelectedOperationId(null);
+                    setEditorValues({});
+                }
             }
         } catch (error) {
             notification.error({
@@ -399,6 +899,7 @@ export default function CustomWorkflowsPage(): JSX.Element {
         setEditorValues(buildDefaultValues(operation));
         setPreviewError(null);
         setPreviewResult(null);
+        initialLoadDoneRef.current = true;
     }, []);
 
     const handleRunCurrent = useCallback(async () => {
@@ -436,6 +937,35 @@ export default function CustomWorkflowsPage(): JSX.Element {
             error: null,
         }]));
     }, [editorValues, selectedOperation]);
+
+    const handleDeleteStep = useCallback((index: number) => {
+        setWorkflow((current) => current.filter((_, i) => i !== index));
+    }, []);
+
+    const handleEditStep = useCallback((step: WorkflowStep) => {
+        selectOperation(step.operation);
+        setEditorValues({ ...step.values });
+    }, [selectOperation]);
+
+    const initialLoadDoneRef = useRef(false);
+    const handleReset = useCallback(() => {
+        // 保留工作流步骤，但重置每个步骤的运行状态
+        setWorkflow((current) => current.map((step) => ({
+            ...step,
+            status: 'idle' as WorkflowStepStatus,
+            result: null,
+            error: null,
+        })));
+        // 重置表单为当前操作的默认值
+        if (selectedOperation) {
+            setEditorValues(buildDefaultValues(selectedOperation));
+        } else {
+            setEditorValues({});
+        }
+        setPreviewResult(null);
+        setPreviewError(null);
+        setExpandedResults(new Set());
+    }, [selectedOperation]);
 
     const runWorkflowStep = useCallback(async (step: WorkflowStep, index: number, stepResults: any[] = []) => {
         setWorkflow((current) => current.map((item, itemIndex) => (
@@ -598,6 +1128,9 @@ export default function CustomWorkflowsPage(): JSX.Element {
                     </div>
                 </div>
                 <Space>
+                    <Button icon={<UndoOutlined />} onClick={handleReset}>
+                        重置
+                    </Button>
                     <Button icon={<ReloadOutlined />} onClick={() => { loadOperations(); }}>
                         刷新
                     </Button>
@@ -609,206 +1142,375 @@ export default function CustomWorkflowsPage(): JSX.Element {
                 </Space>
             </div>
 
-            <Row gutter={16} className='cvat-workflows-layout'>
-                <Col xs={24} lg={9} xl={8} xxl={7}>
+            <div className='cvat-workflows-layout'>
+                <div className='cvat-workflows-left' style={{ width: `${leftWidth}%`, height: '100%', flexShrink: 0 }}>
                     <div className='cvat-workflows-panel'>
                         <Tabs
                             activeKey={selectedKind}
                             onChange={(key) => {
                                 const nextKind = key as CustomOperationKind;
-                                setSelectedKind(nextKind);
-                                const nextOperation = (nextKind === 'model' ? models : augmentations)[0] || null;
-                                if (nextOperation) {
-                                    selectOperation(nextOperation);
-                                } else {
-                                    setSelectedOperationId(null);
-                                    setEditorValues({});
+                                if (nextKind !== selectedKind) {
+                                    setSelectedKind(nextKind);
                                 }
                             }}
                             items={modelTabs}
                         />
                     </div>
-                </Col>
+                </div>
 
-                <Col xs={24} lg={15} xl={16} xxl={17}>
+                <div
+                    ref={resizerRef}
+                    className={`cvat-workflows-resizer ${isResizing ? 'cvat-workflows-resizer-active' : ''}`}
+                    onMouseDown={handleResizerMouseDown}
+                >
+                    <div className='cvat-workflows-resizer-handle' />
+                </div>
+
+                <div className='cvat-workflows-right' style={{ flex: 1, minWidth: 0, height: '100%' }}>
                     <div className='cvat-workflows-panel cvat-workflow-builder-panel'>
-                        {selectedOperation ? (
-                            <>
-                                <div className='cvat-workflow-builder-header'>
-                                    <div>
-                                        <Text strong className='cvat-workflow-builder-title'>{selectedOperation.name}</Text>
-                                        <div className='cvat-workflow-builder-meta'>
-                                            <Tag>{OPERATION_KIND_LABELS[selectedOperation.kind]}</Tag>
-                                            <Tag color='blue'>{selectedOperation.nuclio_function}</Tag>
-                                            {selectedOperation.artifact_url ? (
-                                                <a href={selectedOperation.artifact_url} target='_blank' rel='noreferrer'>
-                                                    {selectedOperation.artifact_name || '附件'}
-                                                </a>
-                                            ) : null}
+                        {/* ---- 上半部分：配置区域 ---- */}
+                        <div className='cvat-workflow-builder-top' style={{ height: `${topHeight}%`, flexShrink: 0 }}>
+                            {selectedOperation ? (
+                                <>
+                                    <div className='cvat-workflow-builder-header'>
+                                        <div>
+                                            <Text strong className='cvat-workflow-builder-title'>
+                                                {selectedOperation.name}
+                                            </Text>
+                                            <div className='cvat-workflow-builder-meta'>
+                                                <Tag>{OPERATION_KIND_LABELS[selectedOperation.kind]}</Tag>
+                                                <Tag color='blue'>{selectedOperation.nuclio_function}</Tag>
+                                                {selectedOperation.artifact_url ? (
+                                                    <a href={selectedOperation.artifact_url}
+                                                        target='_blank' rel='noreferrer'>
+                                                        {selectedOperation.artifact_name || '附件'}
+                                                    </a>
+                                                ) : null}
+                                            </div>
                                         </div>
+                                        <Space>
+                                            <Button icon={<PlusOutlined />}
+                                                onClick={handleAddStep}>
+                                                添加步骤
+                                            </Button>
+                                            <Button
+                                                icon={<PlayCircleOutlined />}
+                                                type='primary'
+                                                loading={running}
+                                                onClick={() => { handleRunCurrent(); }}>
+                                                运行当前步骤
+                                            </Button>
+                                        </Space>
                                     </div>
-                                    <Space>
-                                        <Button
-                                            icon={<PlusOutlined />}
-                                            onClick={handleAddStep}
-                                        >
-                                            添加步骤
-                                        </Button>
-                                        <Button
-                                            icon={<PlayCircleOutlined />}
-                                            type='primary'
-                                            loading={running}
-                                            onClick={() => { handleRunCurrent(); }}
-                                        >
-                                            运行当前步骤
-                                        </Button>
-                                    </Space>
-                                </div>
 
-                                {selectedOperation.description ? (
-                                    <Text type='secondary'>{selectedOperation.description}</Text>
-                                ) : null}
-
-                                <Divider />
-
-                                <div className='cvat-workflow-builder-form'>
-                                    {selectedOperation.input_schema.length ? (
-                                        selectedOperation.input_schema.map((field) => (
-                                            <OperationFieldEditor
-                                                key={field.name}
-                                                field={field}
-                                                value={editorValues[field.name]}
-                                                previousStepOptions={workflowStepOptions}
-                                                onChange={(nextValue) => setEditorValues((current) => ({
-                                                    ...current,
-                                                    [field.name]: nextValue,
-                                                }))}
-                                            />
-                                        ))
-                                    ) : <Empty description='当前操作没有声明输入' />}
+                                    {selectedOperation.description ? (
+                                        <Text type='secondary'>{selectedOperation.description}</Text>
+                                    ) : null}
 
                                     <Divider />
 
-                                    <div className='cvat-workflow-field'>
-                                        <div className='cvat-workflow-field-label'>
-                                            <Text strong>输出路径</Text>
-                                        </div>
-                                        <Input
-                                            value={editorValues[OUTPUT_PATH_FIELD]}
-                                            placeholder='留空则使用默认运行目录'
-                                            onChange={(event) => setEditorValues((current) => ({
-                                                ...current,
-                                                [OUTPUT_PATH_FIELD]: event.target.value,
-                                            }))}
-                                        />
-                                    </div>
-
-                                    <div className='cvat-workflow-field'>
-                                        <div className='cvat-workflow-field-label'>
-                                            <Text strong>保存输出和运行记录</Text>
-                                        </div>
-                                        <Switch
-                                            checked={editorValues[SAVE_OUTPUTS_FIELD] !== false}
-                                            onChange={(checked) => setEditorValues((current) => ({
-                                                ...current,
-                                                [SAVE_OUTPUTS_FIELD]: checked,
-                                            }))}
-                                        />
-                                    </div>
-                                </div>
-
-                                <Divider />
-
-                                <div className='cvat-workflow-builder-footer'>
-                                    <Space>
-                                        <Button
-                                            disabled={!workflow.length}
-                                            icon={<PlayCircleOutlined />}
-                                            loading={running}
-                                            type='primary'
-                                            onClick={() => { handleRunWorkflow(); }}
-                                        >
-                                            运行工作流
-                                        </Button>
-                                        <Button
-                                            icon={<DeleteOutlined />}
-                                            onClick={() => setWorkflow([])}
-                                        >
-                                            清空工作流
-                                        </Button>
-                                    </Space>
-                                    <Button
-                                        type='link'
-                                        onClick={() => history.push('/models')}
-                                    >
-                                        打开内置模型
-                                    </Button>
-                                </div>
-                            </>
-                        ) : (
-                            <Empty description='请选择一个模型或数据增强操作' />
-                        )}
-
-                        <Divider />
-
-                        <div className='cvat-workflow-step-list'>
-                            {workflow.length ? workflow.map((step, index) => (
-                                <div key={step.id} className={`cvat-workflow-step ${step.status === 'failed' ? 'cvat-workflow-step-failed' : ''}`}>
-                                    <div className='cvat-workflow-step-header'>
-                                        <button
-                                            type='button'
-                                            className='cvat-workflow-step-name'
-                                            onClick={() => {
-                                                selectOperation(step.operation);
-                                                setEditorValues(step.values);
-                                            }}
-                                        >
-                                            <Text strong>{`第 ${index + 1} 步：${step.operation.name}`}</Text>
-                                        </button>
-                                        <Space>
-                                            <Tag>{STATUS_LABELS[step.status]}</Tag>
-                                            <Tooltip title='运行此步骤'>
-                                                <Button
-                                                    size='small'
-                                                    icon={<PlayCircleOutlined />}
-                                                    loading={step.status === 'running'}
-                                                    onClick={() => {
-                                                        runWorkflowStep(
-                                                            step,
-                                                            index,
-                                                            workflow.map((item) => item.result),
-                                                        );
-                                                    }}
+                                    <div className='cvat-workflow-builder-form'>
+                                        {selectedOperation.input_schema.length ? (
+                                            selectedOperation.input_schema.map((field) => (
+                                                <OperationFieldEditor
+                                                    key={field.name}
+                                                    field={field}
+                                                    value={editorValues[field.name]}
+                                                    previousStepOptions={workflowStepOptions}
+                                                    onChange={(nextValue) => setEditorValues((current) => ({
+                                                        ...current,
+                                                        [field.name]: nextValue,
+                                                    }))}
                                                 />
-                                            </Tooltip>
-                                        </Space>
+                                            ))
+                                        ) : <Empty description='当前操作没有声明输入' />}
+
+                                        <Divider />
+
+                                        <div className='cvat-workflow-field'>
+                                            <div className='cvat-workflow-field-label'>
+                                                <Text strong>输出路径</Text>
+                                            </div>
+                                            <Input
+                                                value={editorValues[OUTPUT_PATH_FIELD]}
+                                                placeholder='留空则使用默认运行目录'
+                                                onChange={(event) => setEditorValues((current) => ({
+                                                    ...current,
+                                                    [OUTPUT_PATH_FIELD]: event.target.value,
+                                                }))}
+                                            />
+                                        </div>
+
+                                        <div className='cvat-workflow-field'>
+                                            <div className='cvat-workflow-field-label'>
+                                                <Text strong>保存输出和运行记录</Text>
+                                            </div>
+                                            <Switch
+                                                checked={editorValues[SAVE_OUTPUTS_FIELD] !== false}
+                                                onChange={(checked) => setEditorValues((current) => ({
+                                                    ...current,
+                                                    [SAVE_OUTPUTS_FIELD]: checked,
+                                                }))}
+                                            />
+                                        </div>
                                     </div>
-                                    <Text type='secondary'>{step.operation.nuclio_function}</Text>
-                                    {step.error ? <Text type='danger'>{step.error}</Text> : null}
-                                    {step.result ? (
-                                        <pre className='cvat-workflow-step-result'>{prettyJSON(step.result)}</pre>
-                                    ) : null}
-                                </div>
-                            )) : <Empty description='还没有添加工作流步骤' />}
+
+                                    <div className='cvat-workflow-builder-footer'>
+                                        <Space>
+                                            <Button
+                                                disabled={!workflow.length}
+                                                icon={<PlayCircleOutlined />}
+                                                loading={running}
+                                                type='primary'
+                                                onClick={() => { handleRunWorkflow(); }}>
+                                                运行工作流
+                                            </Button>
+                                            <Button
+                                                icon={<DeleteOutlined />}
+                                                onClick={() => setWorkflow([])}>
+                                                清空工作流
+                                            </Button>
+                                        </Space>
+                                        <Button
+                                            type='link'
+                                            onClick={() => history.push('/models')}>
+                                            打开内置模型
+                                        </Button>
+                                    </div>
+                                    <Divider style={{ marginBottom: 0 }} />
+                                </>
+                            ) : (
+                                <Empty description='请选择一个模型或数据增强操作' />
+                            )}
                         </div>
 
-                        {previewResult ? (
-                            <>
-                                <Divider />
-                                <Text strong>最近一次结果</Text>
-                                <pre className='cvat-workflow-step-result'>{prettyJSON(previewResult)}</pre>
-                            </>
-                        ) : null}
+                        {/* ---- 上下区域拖动条 ---- */}
+                        <div
+                            ref={topResizerRef}
+                            className={`cvat-workflow-builder-resizer ${isTopResizing ? 'cvat-workflow-builder-resizer-active' : ''}`}
+                            onMouseDown={handleTopResizerMouseDown}
+                        >
+                            <div className='cvat-workflow-builder-resizer-handle' />
+                        </div>
 
-                        {previewError ? (
-                            <>
-                                <Divider />
-                                <Text type='danger'>{previewError}</Text>
-                            </>
-                        ) : null}
+                        {/* ---- 下半部分：输出展示区域（Tabs） ---- */}
+                        <div className='cvat-workflow-builder-bottom'>
+                            <Tabs
+                                defaultActiveKey='workflow-steps'
+                                items={[
+                                    {
+                                        key: 'workflow-steps',
+                                        label: '工作流步骤',
+                                        children: (
+                                            <div className='cvat-workflow-step-list'>
+                                                {workflow.length ? workflow.map((step, index) => (
+                                                    <div
+                                                        key={step.id}
+                                                        role='button'
+                                                        tabIndex={0}
+                                                        className={[
+                                                            'cvat-workflow-step',
+                                                            step.status === 'running' ? 'cvat-workflow-step-running' : '',
+                                                            step.status === 'success' ? 'cvat-workflow-step-success' : '',
+                                                            step.status === 'failed' ? 'cvat-workflow-step-failed' : '',
+                                                        ].join(' ')}
+                                                        onClick={() => {
+                                                            setSelectedStepIndex(index);
+                                                            setStepDetailVisible(true);
+                                                        }}
+                                                        onKeyDown={(e) => {
+                                                            if (e.key === 'Enter' || e.key === ' ') {
+                                                                e.preventDefault();
+                                                                setSelectedStepIndex(index);
+                                                                setStepDetailVisible(true);
+                                                            }
+                                                        }}
+                                                    >
+                                                        <div className='cvat-workflow-step-header'>
+                                                            <button
+                                                                type='button'
+                                                                className='cvat-workflow-step-name'
+                                                                onClick={(e) => {
+                                                                    e.stopPropagation();
+                                                                    selectOperation(step.operation);
+                                                                    setEditorValues(step.values);
+                                                                }}
+                                                            >
+                                                                <Text strong>
+                                                                    {`第 ${index + 1} 步：${step.operation.name}`}
+                                                                </Text>
+                                                            </button>
+                                                            <Space>
+                                                                <Tag>{STATUS_LABELS[step.status]}</Tag>
+                                                                <Tooltip title='运行此步骤'>
+                                                                    <Button
+                                                                        size='small'
+                                                                        icon={<PlayCircleOutlined />}
+                                                                        loading={step.status === 'running'}
+                                                                        onClick={(e) => {
+                                                                            e.stopPropagation();
+                                                                            runWorkflowStep(
+                                                                                step,
+                                                                                index,
+                                                                                workflow.map((item) => item.result),
+                                                                            );
+                                                                        }}
+                                                                    />
+                                                                </Tooltip>
+                                                                <Tooltip title='编辑步骤'>
+                                                                    <Button
+                                                                        size='small'
+                                                                        icon={<EditOutlined />}
+                                                                        onClick={(e) => {
+                                                                            e.stopPropagation();
+                                                                            handleEditStep(step);
+                                                                        }}
+                                                                    />
+                                                                </Tooltip>
+                                                                <Tooltip title='删除步骤'>
+                                                                    <Button
+                                                                        size='small'
+                                                                        danger
+                                                                        icon={<DeleteOutlined />}
+                                                                        onClick={(e) => {
+                                                                            e.stopPropagation();
+                                                                            handleDeleteStep(index);
+                                                                        }}
+                                                                    />
+                                                                </Tooltip>
+                                                            </Space>
+                                                        </div>
+                                                        <Text type='secondary'>
+                                                            {step.operation.nuclio_function}
+                                                        </Text>
+                                                        {step.error ? (
+                                                            <Text type='danger'>{step.error}</Text>
+                                                        ) : null}
+                                                        {step.result ? (
+                                                            <div>
+                                                                <div className='cvat-workflow-step-result-toggle'>
+                                                                    <Button
+                                                                        type='link'
+                                                                        size='small'
+                                                                        icon={
+                                                                            expandedResults.has(step.id)
+                                                                                ? <UpOutlined />
+                                                                                : <DownOutlined />
+                                                                        }
+                                                                        onClick={(e) => {
+                                                                            e.stopPropagation();
+                                                                            toggleResultExpand(step.id);
+                                                                        }}
+                                                                    >
+                                                                        {expandedResults.has(step.id) ? '收起结果' : '展开结果'}
+                                                                    </Button>
+                                                                </div>
+                                                                {expandedResults.has(step.id) ? (
+                                                                    <pre className='cvat-workflow-step-result'>
+                                                                        {prettyJSON(step.result)}
+                                                                    </pre>
+                                                                ) : (
+                                                                    <div className='cvat-workflow-step-result-collapsed'>
+                                                                        <Text type='secondary'>
+                                                                            结果已折叠 · 点击"展开结果"查看
+                                                                        </Text>
+                                                                    </div>
+                                                                )}
+                                                            </div>
+                                                        ) : null}
+                                                    </div>
+                                                )) : (
+                                                    <Empty description='还没有添加工作流步骤' />
+                                                )}
+                                            </div>
+                                        ),
+                                    },
+                                    {
+                                        key: 'final-output',
+                                        label: '最终输出结果',
+                                        children: (
+                                            <FinalOutputTabContent workflow={workflow} />
+                                        ),
+                                    },
+                                ]}
+                            />
+                        </div>
                     </div>
-                </Col>
-            </Row>
+                </div>
+            </div>
+
+            {/* ---- 步骤详情弹窗 ---- */}
+            <Modal
+                title={
+                    selectedStepIndex !== null && workflow[selectedStepIndex]
+                        ? `第 ${selectedStepIndex + 1} 步：${workflow[selectedStepIndex].operation.name}`
+                        : '步骤详情'
+                }
+                open={stepDetailVisible}
+                onCancel={() => {
+                    setStepDetailVisible(false);
+                    setSelectedStepIndex(null);
+                }}
+                footer={
+                    <Button onClick={() => {
+                        setStepDetailVisible(false);
+                        setSelectedStepIndex(null);
+                    }}>
+                        关闭
+                    </Button>
+                }
+                width={680}
+                destroyOnClose
+            >
+                {selectedStepIndex !== null && workflow[selectedStepIndex] ? (() => {
+                    const step = workflow[selectedStepIndex];
+                    return (
+                        <div className='cvat-workflow-step-detail'>
+                            <Descriptions column={1} size='small' bordered>
+                                <Descriptions.Item label='状态'>
+                                    <Tag>
+                                        {STATUS_LABELS[step.status]}
+                                    </Tag>
+                                </Descriptions.Item>
+                                <Descriptions.Item label='操作类型'>
+                                    <Tag color='blue'>
+                                        {OPERATION_KIND_LABELS[step.operation.kind]}
+                                    </Tag>
+                                </Descriptions.Item>
+                                <Descriptions.Item label='Nuclio 函数'>
+                                    {step.operation.nuclio_function}
+                                </Descriptions.Item>
+                                <Descriptions.Item label='描述'>
+                                    {step.operation.description || '暂无说明'}
+                                </Descriptions.Item>
+                            </Descriptions>
+
+                            <Divider orientation='left'>输入参数</Divider>
+                            <pre className='cvat-workflow-step-detail-json'>
+                                {prettyJSON(step.values)}
+                            </pre>
+
+                            <Divider orientation='left'>输出结果</Divider>
+                            {step.result ? (
+                                <pre className='cvat-workflow-step-detail-json'>
+                                    {prettyJSON(step.result)}
+                                </pre>
+                            ) : (
+                                <Text type='secondary'>暂无输出</Text>
+                            )}
+
+                            {step.error ? (
+                                <>
+                                    <Divider orientation='left'>错误信息</Divider>
+                                    <Text type='danger'>{step.error}</Text>
+                                </>
+                            ) : null}
+                        </div>
+                    );
+                })() : (
+                    <Empty description='无法加载步骤详情' />
+                )}
+            </Modal>
 
             <Drawer
                 width={560}

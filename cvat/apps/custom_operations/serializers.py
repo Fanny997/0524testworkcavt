@@ -1,7 +1,7 @@
 # Copyright (C) CVAT.ai Corporation
 #
 # SPDX-License-Identifier: MIT
-
+# 数据校验文件
 from __future__ import annotations
 
 from urllib.parse import urlencode
@@ -20,31 +20,44 @@ class CustomOperationOptionSerializer(serializers.Serializer):
 
 
 class CustomOperationInputFieldSerializer(serializers.Serializer):
-    name = serializers.CharField()
-    label = serializers.CharField(required=False, allow_blank=True, default="")
-    type = serializers.ChoiceField(choices=OperationFieldType.choices())
-    required = serializers.BooleanField(default=False)
+    """
+    SELECT 类型字段的单个选项，格式如：
+    {"label": "显示文字", "value": <任意JSON值>, "description": "可选说明"}
+    """
+    name = serializers.CharField()# 字段唯一标识
+    label = serializers.CharField(required=False, allow_blank=True, default="")   # 前端展示名
+    type = serializers.ChoiceField(choices=OperationFieldType.choices())           # 字段类型
+    required = serializers.BooleanField(default=False)                             # 是否必填
     description = serializers.CharField(required=False, allow_blank=True, default="")
     placeholder = serializers.CharField(required=False, allow_blank=True, default="")
-    default = serializers.JSONField(required=False)
+    default = serializers.JSONField(required=False)                                # 默认值
+
+    # 仅 SELECT 类型使用
     options = CustomOperationOptionSerializer(many=True, required=False)
+
+    # 仅 FILE / FILE_COLLECTION 类型使用：限制可接受的 MIME 类型或扩展名
     accept = serializers.ListField(child=serializers.CharField(), required=False)
+
+    # 仅 FILE_COLLECTION 类型使用：限制文件数量范围
     min_count = serializers.IntegerField(required=False, min_value=1)
     max_count = serializers.IntegerField(required=False, min_value=1)
+
+    # 仅数值类型（INTEGER / NUMBER）使用：限制取值范围和步长
     minimum = serializers.FloatField(required=False)
     maximum = serializers.FloatField(required=False)
     step = serializers.FloatField(required=False)
 
     def validate(self, attrs):
+        # SELECT 类型必须提供至少一个选项
         if attrs["type"] == OperationFieldType.SELECT.value and not attrs.get("options"):
             raise serializers.ValidationError("Select fields require options")
-
+        # FILE / FILE_COLLECTION 类型不允许定义options
         if attrs["type"] in {
             OperationFieldType.FILE.value,
             OperationFieldType.FILE_COLLECTION.value,
         } and attrs.get("options"):
             raise serializers.ValidationError("File fields cannot define options")
-
+        # FILE_COLLECTION 类型：max_count 不能小于 min_count
         if attrs["type"] == OperationFieldType.FILE_COLLECTION.value:
             min_count = attrs.get("min_count", 1)
             max_count = attrs.get("max_count")
@@ -55,6 +68,13 @@ class CustomOperationInputFieldSerializer(serializers.Serializer):
 
 
 class CustomOperationDefinitionSerializer(serializers.ModelSerializer):
+    """
+    CustomOperationDefinition 的完整序列化。
+
+    artifact：上传时写入,不在响应中返回原始文件对象
+    artifact_url：动态生成带签名的下载链接（只读）
+    artifact_name：从存储路径中提取的文件名（只读）
+    """
     artifact = serializers.FileField(required=False, allow_null=True, write_only=True)
     artifact_url = serializers.SerializerMethodField()
     artifact_name = serializers.SerializerMethodField()
@@ -80,6 +100,13 @@ class CustomOperationDefinitionSerializer(serializers.ModelSerializer):
         read_only_fields = ("artifact_key", "artifact_url", "artifact_name", "created_date", "updated_date")
 
     def validate_input_schema(self, value):
+        """
+        校验 input_schema 字段：
+        1. 空值统一转为空列表
+        2. 必须是列表类型
+        3. 每个元素通过 CustomOperationInputFieldSerializer 校验
+        4. 字段 name 不允许重复
+        """
         if value in (None, ""):
             value = []
 

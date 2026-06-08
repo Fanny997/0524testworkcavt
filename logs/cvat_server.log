@@ -4019,3 +4019,2496 @@ cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augment
 [2026-05-24 16:38:28,480] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 366
 [2026-05-24 16:38:34,064] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 868
 [2026-05-24 16:38:34,279] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 849
+[2026-05-24 16:39:59,079] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 350
+[2026-05-24 17:30:09,377] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 124
+[2026-05-24 17:30:19,735] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 131
+[2026-05-24 17:30:23,825] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 17:30:23,974] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 3035
+[2026-05-24 17:30:24,796] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 381
+[2026-05-24 17:30:24,935] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 301
+[2026-05-24 17:30:27,773] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 294
+[2026-05-24 17:30:27,774] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42239
+[2026-05-24 17:30:28,637] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 580
+[2026-05-24 17:30:28,761] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 17:30:29,016] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 17:30:29,118] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 17:30:29,140] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 17:30:29,209] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 17:30:29,572] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 17:30:29,781] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 220
+[2026-05-24 17:30:36,595] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 965
+[2026-05-24 17:30:36,604] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 786
+[2026-05-24 17:30:36,808] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-24 17:31:59,218] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 460
+[2026-05-24 17:39:27,858] INFO django.server: "POST /api/custom-operations/definitions/2/execute?org= HTTP/1.1" 200 1413
+[2026-05-24 17:39:33,015] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 590
+[2026-05-24 17:39:38,923] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 951
+[2026-05-24 17:39:39,526] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 796
+[2026-05-24 17:39:57,490] INFO django.server: "POST /api/custom-operations/definitions/2/execute?org= HTTP/1.1" 200 1477
+[2026-05-24 17:39:58,929] INFO django.server: "POST /api/custom-operations/definitions/1/execute?org= HTTP/1.1" 200 1200
+[2026-05-24 17:40:01,018] INFO django.server: "POST /api/custom-operations/definitions/1/execute?org= HTTP/1.1" 200 1253
+[2026-05-24 17:40:02,218] INFO django.server: "POST /api/custom-operations/definitions/1/execute?org= HTTP/1.1" 200 1208
+[2026-05-24 17:41:03,820] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 447
+[2026-05-24 17:44:57,253] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 211
+[2026-05-24 17:44:57,726] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 17:44:57,959] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 2996
+[2026-05-24 17:44:59,663] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 460
+[2026-05-24 17:45:00,265] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 222
+[2026-05-24 17:45:00,391] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42278
+[2026-05-24 17:45:00,817] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 280
+[2026-05-24 17:45:01,923] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 571
+[2026-05-24 17:45:01,956] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 17:45:02,023] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 17:45:02,182] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 17:45:02,273] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 17:45:02,287] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 17:45:02,659] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 17:45:02,992] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 198
+[2026-05-24 17:45:05,425] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 894
+[2026-05-24 17:45:05,431] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 787
+[2026-05-24 17:45:05,517] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-24 17:46:31,935] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 415
+[2026-05-24 17:47:49,492] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 17:47:49,672] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 17:47:50,253] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 17:47:50,510] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 17:47:50,522] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 17:47:50,672] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 17:47:51,029] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 17:47:51,209] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 17:47:52,544] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 819
+[2026-05-24 17:47:52,546] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 943
+[2026-05-24 17:47:55,446] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 967
+[2026-05-24 17:47:55,447] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 772
+[2026-05-24 17:48:03,286] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 536
+[2026-05-24 17:48:47,111] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 923
+[2026-05-24 17:48:47,392] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 856
+[2026-05-24 17:50:23,317] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 220
+[2026-05-24 17:50:24,277] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 17:50:24,288] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 3015
+[2026-05-24 17:50:25,940] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 281
+[2026-05-24 17:50:25,953] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 396
+[2026-05-24 17:50:26,032] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42210
+[2026-05-24 17:50:26,250] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 251
+[2026-05-24 17:50:27,096] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 17:50:27,230] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 516
+[2026-05-24 17:50:27,231] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 17:50:27,290] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 17:50:27,304] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 17:50:27,307] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 17:50:27,865] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 17:50:28,045] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 17:50:29,747] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 916
+[2026-05-24 17:50:29,786] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 803
+[2026-05-24 17:50:29,893] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-24 17:51:37,994] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 122
+[2026-05-24 17:51:39,022] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 17:51:39,159] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 3000
+[2026-05-24 17:51:40,124] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 459
+[2026-05-24 17:51:40,151] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 302
+[2026-05-24 17:51:40,156] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42262
+[2026-05-24 17:51:40,416] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 263
+[2026-05-24 17:51:41,025] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 17:51:41,184] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 17:51:41,251] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 494
+[2026-05-24 17:51:41,293] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 17:51:41,304] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 17:51:41,318] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 17:51:41,708] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 17:51:41,927] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 17:51:43,947] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 849
+[2026-05-24 17:51:43,967] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 892
+[2026-05-24 17:51:44,049] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-24 17:52:28,216] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 17:52:28,325] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 17:52:28,604] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 17:52:28,757] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 17:52:28,922] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 17:52:29,155] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 17:52:29,497] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 17:52:29,664] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 17:52:30,490] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 851
+[2026-05-24 17:52:30,505] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 929
+[2026-05-24 17:52:50,325] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 137
+[2026-05-24 17:52:52,103] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 17:52:52,228] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 2981
+[2026-05-24 17:52:53,014] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 461
+[2026-05-24 17:52:53,051] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 309
+[2026-05-24 17:52:53,107] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42246
+[2026-05-24 17:52:53,801] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 257
+[2026-05-24 17:52:55,578] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 17:52:56,530] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 17:52:56,599] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 511
+[2026-05-24 17:52:56,621] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 17:52:56,635] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 17:52:56,640] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 17:52:56,932] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 17:52:57,056] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 17:52:58,067] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 945
+[2026-05-24 17:52:58,102] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 823
+[2026-05-24 17:52:58,122] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-24 17:53:25,164] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 908
+[2026-05-24 17:53:25,192] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 767
+[2026-05-24 17:54:15,815] INFO django.server: "POST /api/custom-operations/definitions/1/execute?org= HTTP/1.1" 200 1271
+[2026-05-24 17:54:24,331] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 564
+[2026-05-24 17:54:31,825] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 894
+[2026-05-24 17:54:32,082] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 813
+[2026-05-24 17:54:46,859] INFO django.server: "POST /api/custom-operations/definitions/1/execute?org= HTTP/1.1" 200 1197
+[2026-05-24 17:54:48,015] INFO django.server: "POST /api/custom-operations/definitions/2/execute?org= HTTP/1.1" 200 1486
+[2026-05-24 17:55:54,513] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 373
+[2026-05-24 17:56:17,643] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 891
+[2026-05-24 17:56:17,716] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 807
+[2026-05-24 17:56:19,010] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 842
+[2026-05-24 17:56:19,024] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 894
+[2026-05-24 17:56:20,271] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 814
+[2026-05-24 17:56:20,281] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 906
+[2026-05-24 17:56:22,113] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 769
+[2026-05-24 17:56:22,127] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 939
+[2026-05-24 17:58:50,701] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 195
+[2026-05-24 17:58:53,598] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 463
+[2026-05-24 17:58:54,127] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 17:58:54,218] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 2999
+[2026-05-24 17:58:55,025] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 256
+[2026-05-24 17:58:55,658] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42251
+[2026-05-24 17:58:55,963] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 313
+[2026-05-24 17:58:56,569] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 17:58:57,202] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 17:58:57,207] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 506
+[2026-05-24 17:58:57,267] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 17:58:57,362] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 17:58:57,396] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 17:58:57,844] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 17:58:58,003] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 204
+[2026-05-24 17:58:59,750] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 841
+[2026-05-24 17:58:59,761] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 891
+[2026-05-24 17:58:59,803] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-24 18:00:26,481] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 501
+[2026-05-24 18:04:25,261] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:04:25,384] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 18:04:25,720] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:04:25,722] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:04:25,965] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 223
+[2026-05-24 18:04:25,968] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 18:04:26,330] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:04:26,437] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 18:04:32,979] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 869
+[2026-05-24 18:04:33,148] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 843
+[2026-05-24 18:04:56,731] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 652
+[2026-05-24 18:15:39,575] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 900
+[2026-05-24 18:15:39,576] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 800
+[2026-05-24 18:15:48,180] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 889
+[2026-05-24 18:15:48,183] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 779
+[2026-05-24 18:16:41,917] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 128
+[2026-05-24 18:16:43,402] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 18:16:43,478] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 3003
+[2026-05-24 18:16:44,557] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 425
+[2026-05-24 18:16:44,563] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 247
+[2026-05-24 18:16:44,631] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42241
+[2026-05-24 18:16:44,924] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 260
+[2026-05-24 18:16:45,591] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:16:45,802] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 512
+[2026-05-24 18:16:45,948] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 18:16:46,125] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 18:16:46,133] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 18:16:46,212] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 18:16:46,955] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:16:47,214] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 18:16:49,270] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 826
+[2026-05-24 18:16:49,271] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 911
+[2026-05-24 18:16:49,485] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-24 18:17:01,351] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 181
+[2026-05-24 18:17:03,695] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 18:17:03,813] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 3037
+[2026-05-24 18:17:04,278] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 428
+[2026-05-24 18:17:04,507] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 222
+[2026-05-24 18:17:04,574] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42188
+[2026-05-24 18:17:04,883] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 298
+[2026-05-24 18:17:05,694] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:17:05,916] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 497
+[2026-05-24 18:17:05,954] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 18:17:05,976] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 18:17:06,035] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 18:17:06,275] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 18:17:06,602] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:17:06,777] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 18:17:08,203] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 797
+[2026-05-24 18:17:08,204] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 874
+[2026-05-24 18:17:08,278] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-24 18:17:40,825] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 767
+[2026-05-24 18:17:40,831] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 908
+[2026-05-24 18:17:45,023] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 122
+[2026-05-24 18:17:47,803] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 18:17:47,846] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 3022
+[2026-05-24 18:17:48,013] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 373
+[2026-05-24 18:17:49,680] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 313
+[2026-05-24 18:17:50,078] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42189
+[2026-05-24 18:18:00,535] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 290
+[2026-05-24 18:18:03,063] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 170
+[2026-05-24 18:18:04,874] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 18:18:04,926] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 3022
+[2026-05-24 18:18:06,323] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 435
+[2026-05-24 18:18:07,173] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 271
+[2026-05-24 18:18:07,445] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42219
+[2026-05-24 18:18:07,628] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 247
+[2026-05-24 18:18:08,425] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:18:08,595] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 582
+[2026-05-24 18:18:08,605] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 18:18:08,806] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 18:18:08,836] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 18:18:08,941] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 18:18:09,201] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:18:09,565] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 18:18:10,617] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 880
+[2026-05-24 18:18:10,660] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 840
+[2026-05-24 18:18:10,814] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-24 18:19:03,587] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 143
+[2026-05-24 18:19:04,853] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 18:19:05,052] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 2948
+[2026-05-24 18:19:07,049] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 276
+[2026-05-24 18:19:07,391] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 382
+[2026-05-24 18:19:07,554] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42249
+[2026-05-24 18:19:08,874] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 262
+[2026-05-24 18:19:09,742] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:19:09,956] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 569
+[2026-05-24 18:19:10,192] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 18:19:10,212] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 18:19:10,213] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 18:19:10,292] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 18:19:10,630] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:19:10,811] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 190
+[2026-05-24 18:19:11,935] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 941
+[2026-05-24 18:19:11,995] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 812
+[2026-05-24 18:19:12,034] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-24 18:19:29,269] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 139
+[2026-05-24 18:19:31,613] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 18:19:31,782] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 2993
+[2026-05-24 18:19:32,082] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 441
+[2026-05-24 18:19:32,156] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 282
+[2026-05-24 18:19:32,159] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42241
+[2026-05-24 18:19:32,599] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 273
+[2026-05-24 18:19:33,509] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:19:33,847] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 531
+[2026-05-24 18:19:33,906] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 18:19:33,999] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 18:19:34,011] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 18:19:34,041] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 18:19:35,297] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:19:35,757] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 191
+[2026-05-24 18:19:38,150] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 825
+[2026-05-24 18:19:38,353] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 886
+[2026-05-24 18:19:38,501] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-24 18:20:32,244] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 910
+[2026-05-24 18:20:32,244] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 843
+[2026-05-24 18:21:02,778] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 599
+[2026-05-24 18:22:42,267] INFO django.server: "POST /api/custom-operations/definitions/2/execute?org= HTTP/1.1" 200 1578
+[2026-05-24 18:23:05,961] INFO django.server: "POST /api/custom-operations/definitions/2/execute?org= HTTP/1.1" 200 1525
+[2026-05-24 18:23:07,650] INFO django.server: "POST /api/custom-operations/definitions/1/execute?org= HTTP/1.1" 200 1322
+[2026-05-24 18:24:04,254] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 391
+[2026-05-24 18:28:02,877] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:28:03,012] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 18:28:03,275] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:28:03,397] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 18:28:03,672] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:28:03,831] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 18:28:04,133] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:28:04,251] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 18:28:05,357] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 944
+[2026-05-24 18:28:05,358] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 864
+[2026-05-24 18:28:34,911] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 468
+[2026-05-24 18:30:10,680] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 122
+[2026-05-24 18:34:00,298] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-blur-augmentation from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-blur-augmentation\manifest.json
+[2026-05-24 18:34:00,311] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-onnx-detector from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-onnx-detector\manifest.json
+[2026-05-24 18:34:13,088] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-blur-augmentation from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-blur-augmentation\manifest.json
+[2026-05-24 18:34:13,099] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-onnx-detector from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-onnx-detector\manifest.json
+[2026-05-24 18:34:22,850] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-blur-augmentation from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-blur-augmentation\manifest.json
+[2026-05-24 18:34:22,867] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-onnx-detector from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-onnx-detector\manifest.json
+[2026-05-24 18:35:06,516] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-blur-augmentation from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-blur-augmentation\manifest.json
+[2026-05-24 18:35:06,531] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-onnx-detector from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-onnx-detector\manifest.json
+[2026-05-24 18:36:28,056] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 162
+[2026-05-24 18:36:29,948] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 18:36:29,992] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 2980
+[2026-05-24 18:36:30,607] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 414
+[2026-05-24 18:36:31,480] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 287
+[2026-05-24 18:36:34,174] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 224
+[2026-05-24 18:36:34,285] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42254
+[2026-05-24 18:36:35,701] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:36:36,105] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 18:36:36,223] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 593
+[2026-05-24 18:36:36,624] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 18:36:36,625] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 18:36:36,778] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 18:36:37,582] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:36:38,190] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 18:36:39,710] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 915
+[2026-05-24 18:36:39,710] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 818
+[2026-05-24 18:36:39,779] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-24 18:37:17,517] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 897
+[2026-05-24 18:37:17,742] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 772
+[2026-05-24 18:37:32,011] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 869
+[2026-05-24 18:37:32,208] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 806
+[2026-05-24 18:37:39,620] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 932
+[2026-05-24 18:37:39,814] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 848
+[2026-05-24 18:37:41,024] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 892
+[2026-05-24 18:37:41,025] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 863
+[2026-05-24 18:37:58,990] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 812
+[2026-05-24 18:37:58,999] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 925
+[2026-05-24 18:38:04,388] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 633
+[2026-05-24 18:38:15,366] INFO django.server: "POST /api/custom-operations/definitions/1/execute?org= HTTP/1.1" 200 1287
+[2026-05-24 18:38:34,972] INFO django.server: "POST /api/custom-operations/definitions/2/execute?org= HTTP/1.1" 200 1482
+[2026-05-24 18:39:34,903] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 500
+[2026-05-24 18:39:51,615] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 882
+[2026-05-24 18:39:51,834] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 777
+[2026-05-24 18:39:54,148] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 913
+[2026-05-24 18:39:54,168] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 824
+[2026-05-24 18:41:05,454] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 340
+[2026-05-24 18:43:56,678] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 775
+[2026-05-24 18:43:56,692] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 872
+[2026-05-24 18:47:35,949] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 216
+[2026-05-24 18:47:50,203] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 183
+[2026-05-24 18:47:59,961] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 393
+[2026-05-24 18:48:00,289] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 18:48:00,410] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 2972
+[2026-05-24 18:48:01,750] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 222
+[2026-05-24 18:48:01,823] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42225
+[2026-05-24 18:48:13,803] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 258
+[2026-05-24 18:48:20,059] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 138
+[2026-05-24 18:48:22,438] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 18:48:22,515] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 3020
+[2026-05-24 18:48:24,231] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 448
+[2026-05-24 18:48:24,277] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 251
+[2026-05-24 18:48:24,361] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42211
+[2026-05-24 18:48:24,668] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 230
+[2026-05-24 18:48:25,891] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 494
+[2026-05-24 18:48:25,975] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:48:26,134] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 18:48:26,204] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 18:48:26,331] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 18:48:26,379] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 18:48:27,361] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:48:27,605] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 18:48:28,929] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 931
+[2026-05-24 18:48:28,930] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 803
+[2026-05-24 18:48:29,000] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-24 18:49:46,812] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 914
+[2026-05-24 18:49:46,827] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 817
+[2026-05-24 18:49:53,113] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 905
+[2026-05-24 18:49:53,316] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 780
+[2026-05-24 18:49:54,888] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 481
+[2026-05-24 18:50:00,074] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 962
+[2026-05-24 18:50:00,278] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 778
+[2026-05-24 18:50:05,979] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:50:06,159] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 18:50:06,464] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:50:06,604] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 18:50:06,812] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:50:06,927] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 18:50:07,291] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:50:07,415] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 18:50:08,459] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 789
+[2026-05-24 18:50:08,462] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 896
+[2026-05-24 18:50:12,435] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 783
+[2026-05-24 18:50:12,444] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 879
+[2026-05-24 18:50:13,622] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 940
+[2026-05-24 18:50:13,651] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 789
+[2026-05-24 18:50:14,892] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 874
+[2026-05-24 18:50:14,901] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 768
+[2026-05-24 18:50:17,220] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:50:17,419] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 18:50:17,928] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:50:17,978] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:50:18,150] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 18:50:18,165] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 18:50:18,525] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:50:18,640] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 18:50:19,904] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 795
+[2026-05-24 18:50:19,905] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 954
+[2026-05-24 18:50:45,615] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 856
+[2026-05-24 18:50:45,628] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 923
+[2026-05-24 18:51:25,104] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 1077
+[2026-05-24 18:51:49,871] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 770
+[2026-05-24 18:51:49,879] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 965
+[2026-05-24 18:52:11,343] INFO django.server: "GET /api/projects?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 18:52:12,155] INFO django.server: "GET /api/projects?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 18:52:13,956] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 941
+[2026-05-24 18:52:14,432] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 784
+[2026-05-24 18:52:35,265] INFO django.server: "POST /api/custom-operations/definitions/2/execute?org= HTTP/1.1" 200 1444
+[2026-05-24 18:52:39,137] INFO django.server: "POST /api/custom-operations/definitions/2/execute?org= HTTP/1.1" 200 1426
+[2026-05-24 18:52:54,062] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 967
+[2026-05-24 18:52:54,067] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 833
+[2026-05-24 18:52:55,523] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 904
+[2026-05-24 18:52:55,544] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 859
+[2026-05-24 18:52:55,635] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 953
+[2026-05-24 18:53:28,005] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 187
+[2026-05-24 18:53:30,069] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 18:53:30,233] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 2941
+[2026-05-24 18:53:32,160] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 241
+[2026-05-24 18:53:32,250] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 441
+[2026-05-24 18:53:35,093] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42217
+[2026-05-24 18:53:35,347] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 262
+[2026-05-24 18:53:48,106] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 502
+[2026-05-24 18:53:48,130] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:53:48,261] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 18:53:48,417] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 18:53:48,495] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 18:53:48,535] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 18:53:59,954] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 195
+[2026-05-24 18:54:19,707] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 214
+[2026-05-24 18:54:29,165] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 181
+[2026-05-24 18:54:31,637] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 18:54:31,800] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 2952
+[2026-05-24 18:54:32,619] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 378
+[2026-05-24 18:54:32,802] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 266
+[2026-05-24 18:54:34,877] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42217
+[2026-05-24 18:54:35,022] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 288
+[2026-05-24 18:54:35,959] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:54:36,270] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 561
+[2026-05-24 18:54:36,395] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 18:54:36,413] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 18:54:36,460] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 18:54:36,806] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 18:54:37,037] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:54:37,238] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 18:54:38,457] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 942
+[2026-05-24 18:54:38,489] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 833
+[2026-05-24 18:54:38,510] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-24 18:54:42,321] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 793
+[2026-05-24 18:54:42,336] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 927
+[2026-05-24 18:54:54,436] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 831
+[2026-05-24 18:54:54,781] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 948
+[2026-05-24 18:55:10,232] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 876
+[2026-05-24 18:55:10,371] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 863
+[2026-05-24 18:55:42,986] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 904
+[2026-05-24 18:55:42,987] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 777
+[2026-05-24 18:55:44,641] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 844
+[2026-05-24 18:55:44,642] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 901
+[2026-05-24 18:55:47,303] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 930
+[2026-05-24 18:55:47,347] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 814
+[2026-05-24 18:55:48,551] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 936
+[2026-05-24 18:55:48,562] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 791
+[2026-05-24 18:56:05,226] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 609
+[2026-05-24 18:58:04,336] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 145
+[2026-05-24 18:58:06,163] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 18:58:06,168] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 391
+[2026-05-24 18:58:06,312] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 3013
+[2026-05-24 18:58:09,892] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 220
+[2026-05-24 18:58:10,708] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42238
+[2026-05-24 18:58:12,862] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 225
+[2026-05-24 18:58:14,772] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 545
+[2026-05-24 18:58:14,889] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 18:58:15,443] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 18:58:15,473] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 18:58:15,650] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:58:18,050] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 18:58:20,126] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 18:58:20,669] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 18:58:22,759] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 921
+[2026-05-24 18:58:22,823] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 823
+[2026-05-24 18:58:22,850] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-24 18:58:24,851] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 906
+[2026-05-24 18:58:24,853] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 824
+[2026-05-24 18:58:26,313] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 797
+[2026-05-24 18:58:26,319] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 902
+[2026-05-24 18:58:27,715] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 860
+[2026-05-24 18:58:27,731] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 880
+[2026-05-24 18:59:22,172] INFO django.server: "POST /api/custom-operations/definitions/1/execute?org= HTTP/1.1" 200 1244
+[2026-05-24 18:59:36,280] INFO django.server: "POST /api/custom-operations/definitions/1/execute?org= HTTP/1.1" 200 1193
+[2026-05-24 18:59:43,511] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 595
+[2026-05-24 19:00:25,375] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 943
+[2026-05-24 19:00:25,652] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 819
+[2026-05-24 19:00:42,155] WARNING django.request: Bad Request: /api/custom-operations/definitions/2/execute
+[2026-05-24 19:00:42,158] WARNING django.server: "POST /api/custom-operations/definitions/2/execute?org= HTTP/1.1" 400 29
+[2026-05-24 19:00:52,794] WARNING django.request: Bad Request: /api/custom-operations/definitions/2/execute
+[2026-05-24 19:00:52,796] WARNING django.server: "POST /api/custom-operations/definitions/2/execute?org= HTTP/1.1" 400 29
+[2026-05-24 19:01:14,340] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 436
+[2026-05-24 19:01:14,924] INFO django.server: "POST /api/custom-operations/definitions/2/execute?org= HTTP/1.1" 200 1488
+[2026-05-24 19:01:35,936] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 146
+[2026-05-24 19:01:38,245] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 389
+[2026-05-24 19:01:40,297] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 19:01:40,478] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 3020
+[2026-05-24 19:01:41,193] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 296
+[2026-05-24 19:01:43,056] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42269
+[2026-05-24 19:01:43,381] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 301
+[2026-05-24 19:01:44,509] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 19:01:44,636] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 19:01:44,678] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 546
+[2026-05-24 19:01:44,702] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 19:01:44,889] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 19:01:45,123] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 19:01:45,520] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 19:01:45,731] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 217
+[2026-05-24 19:01:48,063] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 797
+[2026-05-24 19:01:48,163] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 878
+[2026-05-24 19:01:48,221] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-24 19:02:40,834] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 159
+[2026-05-24 19:02:50,577] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 132
+[2026-05-24 19:02:57,001] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 175
+[2026-05-24 19:03:00,575] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 440
+[2026-05-24 19:03:00,721] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 19:03:00,871] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 2996
+[2026-05-24 19:03:02,498] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 218
+[2026-05-24 19:03:03,490] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42251
+[2026-05-24 19:03:04,107] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 313
+[2026-05-24 19:03:05,458] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 513
+[2026-05-24 19:03:05,492] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 19:03:05,661] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 19:03:05,731] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 19:03:05,989] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 19:03:06,025] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 19:03:06,762] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 19:03:06,943] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 19:03:08,593] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 944
+[2026-05-24 19:03:08,596] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 835
+[2026-05-24 19:03:08,636] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-24 19:04:34,672] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 405
+[2026-05-24 19:15:40,747] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-blur-augmentation from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-blur-augmentation\manifest.json
+[2026-05-24 19:15:40,759] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-onnx-detector from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-onnx-detector\manifest.json
+[2026-05-24 19:15:51,403] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-blur-augmentation from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-blur-augmentation\manifest.json
+[2026-05-24 19:15:51,414] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-onnx-detector from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-onnx-detector\manifest.json
+[2026-05-24 19:15:59,504] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-blur-augmentation from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-blur-augmentation\manifest.json
+[2026-05-24 19:15:59,513] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-onnx-detector from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-onnx-detector\manifest.json
+[2026-05-24 19:16:29,468] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-blur-augmentation from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-blur-augmentation\manifest.json
+[2026-05-24 19:16:29,482] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-onnx-detector from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-onnx-detector\manifest.json
+[2026-05-24 19:17:53,379] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 200
+[2026-05-24 19:17:54,580] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 19:17:54,621] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 2945
+[2026-05-24 19:17:54,764] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 238
+[2026-05-24 19:17:54,772] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 417
+[2026-05-24 19:17:57,831] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 276
+[2026-05-24 19:17:58,009] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42257
+[2026-05-24 19:17:58,667] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 19:17:58,839] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 19:17:58,864] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 590
+[2026-05-24 19:17:58,965] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 19:17:58,992] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 19:17:59,014] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 19:17:59,484] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 19:17:59,682] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 19:18:01,384] INFO django.server: "GET /api/tasks?org=&page=1&page_size=10 HTTP/1.1" 200 52
+[2026-05-24 19:18:01,406] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-24 19:18:01,767] INFO django.server: "GET /api/tasks?org=&page=1&page_size=10 HTTP/1.1" 200 52
+[2026-05-24 19:18:02,102] INFO django.server: "GET /api/lambda/requests?org= HTTP/1.1" 200 2
+[2026-05-24 19:18:04,649] INFO django.server: "GET /api/projects?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 19:18:04,960] INFO django.server: "GET /api/projects?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 19:18:05,912] INFO django.server: "GET /api/jobs?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 19:18:07,147] INFO django.server: "GET /api/cloudstorages?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 19:18:07,495] INFO django.server: "GET /api/cloudstorages?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 19:18:09,192] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 19:18:09,355] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 19:18:09,626] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 19:18:09,755] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 19:18:09,963] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 19:18:10,127] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 19:18:10,803] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 19:18:10,958] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 216
+[2026-05-24 19:18:12,025] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 797
+[2026-05-24 19:18:12,036] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 925
+[2026-05-24 19:18:33,658] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 874
+[2026-05-24 19:18:33,659] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 823
+[2026-05-24 19:18:36,195] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 952
+[2026-05-24 19:18:36,197] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 822
+[2026-05-24 19:18:43,210] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 891
+[2026-05-24 19:18:43,483] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 783
+[2026-05-24 19:19:05,469] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 921
+[2026-05-24 19:19:05,704] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 783
+[2026-05-24 19:19:28,101] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 879
+[2026-05-24 19:22:37,698] INFO django.server: "POST /api/custom-operations/definitions/1/execute?org= HTTP/1.1" 200 1324
+[2026-05-24 19:22:39,804] INFO django.server: "POST /api/custom-operations/definitions/2/execute?org= HTTP/1.1" 200 1517
+[2026-05-24 19:24:01,975] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 393
+[2026-05-24 19:24:19,442] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 180
+[2026-05-24 19:24:21,280] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 19:24:21,434] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 3031
+[2026-05-24 19:24:22,192] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 465
+[2026-05-24 19:24:22,261] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 308
+[2026-05-24 19:24:22,311] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42189
+[2026-05-24 19:24:22,648] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 283
+[2026-05-24 19:24:23,460] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 19:24:23,807] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 539
+[2026-05-24 19:24:23,808] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 19:24:23,881] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 19:24:23,892] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 19:24:24,256] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 19:24:24,508] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 19:24:24,742] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 19:24:26,472] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 840
+[2026-05-24 19:24:26,482] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 923
+[2026-05-24 19:24:26,552] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-24 19:24:44,615] INFO django.server: "POST /api/custom-operations/definitions/2/execute?org= HTTP/1.1" 200 1518
+[2026-05-24 19:25:53,255] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 611
+[2026-05-24 19:51:39,508] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 388
+[2026-05-24 19:52:05,186] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 219
+[2026-05-24 19:52:07,184] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 19:52:07,200] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 3032
+[2026-05-24 19:52:07,867] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 258
+[2026-05-24 19:52:07,885] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 388
+[2026-05-24 19:52:07,985] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42211
+[2026-05-24 19:52:08,197] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 307
+[2026-05-24 19:52:08,864] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 19:52:08,936] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 19:52:08,936] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 550
+[2026-05-24 19:52:09,104] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 19:52:09,112] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 19:52:09,201] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 19:52:09,431] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 19:52:09,545] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 207
+[2026-05-24 19:52:10,391] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 946
+[2026-05-24 19:52:10,396] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 858
+[2026-05-24 19:52:10,437] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-24 19:53:38,809] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 537
+[2026-05-24 19:56:05,783] WARNING django.request: Bad Request: /api/custom-operations/definitions/2/execute
+[2026-05-24 19:56:05,786] WARNING django.server: "POST /api/custom-operations/definitions/2/execute?org= HTTP/1.1" 400 29
+[2026-05-24 19:56:39,048] INFO django.server: "POST /api/custom-operations/definitions/2/execute?org= HTTP/1.1" 200 1448
+[2026-05-24 19:56:39,934] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 477
+[2026-05-24 19:56:45,803] INFO django.server: "POST /api/custom-operations/definitions/2/execute?org= HTTP/1.1" 200 1417
+[2026-05-24 19:58:11,287] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 317
+[2026-05-24 20:28:42,647] INFO django.server: "GET /api/projects?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 20:28:42,955] INFO django.server: "GET /api/projects?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 20:28:45,582] INFO django.server: "GET /api/tasks?org=&page=1&page_size=10 HTTP/1.1" 200 52
+[2026-05-24 20:28:45,830] INFO django.server: "GET /api/tasks?org=&page=1&page_size=10 HTTP/1.1" 200 52
+[2026-05-24 20:28:46,067] INFO django.server: "GET /api/lambda/requests?org= HTTP/1.1" 200 2
+[2026-05-24 20:28:47,079] INFO django.server: "GET /api/jobs?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 20:28:49,698] INFO django.server: "GET /api/cloudstorages?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 20:28:49,919] INFO django.server: "GET /api/cloudstorages?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 20:28:52,326] INFO django.server: "GET /api/jobs?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 20:28:53,618] INFO django.server: "GET /api/cloudstorages?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 20:28:53,872] INFO django.server: "GET /api/cloudstorages?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 20:29:11,331] INFO django.server: "GET /admin HTTP/1.1" 301 0
+[2026-05-24 20:29:11,878] INFO django.server: "GET /admin/ HTTP/1.1" 200 2415
+[2026-05-24 20:29:11,907] INFO django.server: "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+[2026-05-24 20:29:11,907] INFO django.server: "GET /static/admin/css/base.css HTTP/1.1" 200 21310
+[2026-05-24 20:29:11,921] INFO django.server: "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+[2026-05-24 20:29:11,921] INFO django.server: "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+[2026-05-24 20:29:11,931] INFO django.server: "GET /static/admin/css/responsive.css HTTP/1.1" 200 18559
+[2026-05-24 20:29:11,931] INFO django.server: "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+[2026-05-24 20:29:11,939] INFO django.server: "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+[2026-05-24 20:29:11,951] INFO django.server: "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+[2026-05-24 20:29:11,951] INFO django.server: "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+[2026-05-24 20:29:21,524] INFO django.server: "GET /api/auth/access_tokens?org=&page=1&page_size=500 HTTP/1.1" 200 52
+[2026-05-24 20:29:26,150] INFO django.server: "GET /api/invitations?page=1&pageSize=10&filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 20:29:54,251] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 218
+[2026-05-24 20:29:55,732] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 20:29:55,735] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 3014
+[2026-05-24 20:29:55,775] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 413
+[2026-05-24 20:29:55,794] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42183
+[2026-05-24 20:29:55,816] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 257
+[2026-05-24 20:29:56,023] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 264
+[2026-05-24 20:29:56,409] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 20:29:56,482] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 20:29:56,487] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 586
+[2026-05-24 20:29:56,563] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 20:29:56,567] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 20:29:56,892] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 20:29:57,025] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 20:29:57,756] INFO django.server: "GET /api/invitations?page=1&pageSize=10&filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 20:29:57,776] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-24 20:30:12,517] INFO django.server: "GET /api/projects?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 20:30:12,908] INFO django.server: "GET /api/projects?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 20:30:35,690] INFO django.server: "GET /api/projects?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 20:30:36,076] INFO django.server: "GET /api/projects?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 20:31:26,203] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 671
+[2026-05-24 20:37:32,504] INFO django.server: "GET /admin/ HTTP/1.1" 200 2430
+[2026-05-24 20:38:01,099] INFO django.server: "GET /api/invitations?page=1&pageSize=10&filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 20:38:54,404] INFO django.server: "GET /api/projects?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 20:38:54,684] INFO django.server: "GET /api/projects?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 20:39:00,959] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 393
+[2026-05-24 20:43:58,696] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 797
+[2026-05-24 20:43:58,714] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 948
+[2026-05-24 20:44:04,205] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 20:44:04,454] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 20:44:04,766] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 20:44:04,885] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 20:44:05,090] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 20:44:05,185] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 224
+[2026-05-24 20:44:05,437] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 20:44:05,536] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-24 20:44:07,749] INFO django.server: "GET /api/cloudstorages?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 20:44:08,023] INFO django.server: "GET /api/cloudstorages?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 20:44:08,897] INFO django.server: "GET /api/jobs?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 20:44:09,922] INFO django.server: "GET /api/tasks?org=&page=1&page_size=10 HTTP/1.1" 200 52
+[2026-05-24 20:44:10,283] INFO django.server: "GET /api/tasks?org=&page=1&page_size=10 HTTP/1.1" 200 52
+[2026-05-24 20:44:10,510] INFO django.server: "GET /api/lambda/requests?org= HTTP/1.1" 200 2
+[2026-05-24 20:44:11,263] INFO django.server: "GET /api/projects?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 20:44:11,526] INFO django.server: "GET /api/projects?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-05-24 20:45:04,412] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 601
+[2026-05-24 20:45:04,466] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 826
+[2026-05-24 20:45:04,469] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 916
+[2026-05-24 20:45:05,445] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 20:45:05,559] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 20:45:05,901] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 20:45:05,980] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 20:45:06,133] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 20:45:06,135] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 200
+[2026-05-24 20:45:06,472] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 20:45:06,591] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 215
+[2026-05-24 20:45:10,182] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 131
+[2026-05-24 20:45:12,126] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-24 20:45:12,130] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 2959
+[2026-05-24 20:45:12,194] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 464
+[2026-05-24 20:45:12,203] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 303
+[2026-05-24 20:45:12,206] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42207
+[2026-05-24 20:45:12,435] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 266
+[2026-05-24 20:45:12,931] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 20:45:12,940] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 557
+[2026-05-24 20:45:13,086] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-24 20:45:13,109] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-24 20:45:13,116] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-24 20:45:13,141] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-24 20:45:13,354] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-24 20:45:13,465] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 195
+[2026-05-24 20:45:14,166] INFO django.server: "GET /api/tasks?org=&page=1&page_size=10 HTTP/1.1" 200 52
+[2026-05-24 20:45:14,167] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-24 20:45:14,407] INFO django.server: "GET /api/tasks?org=&page=1&page_size=10 HTTP/1.1" 200 52
+[2026-05-24 20:45:14,663] INFO django.server: "GET /api/lambda/requests?org= HTTP/1.1" 200 2
+[2026-05-24 20:45:20,908] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 131
+[2026-05-24 20:46:35,228] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 446
+[2026-05-31 18:57:28,122] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-blur-augmentation from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-blur-augmentation\manifest.json
+[2026-05-31 18:57:28,134] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-onnx-detector from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-onnx-detector\manifest.json
+[2026-05-31 18:57:41,814] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-blur-augmentation from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-blur-augmentation\manifest.json
+[2026-05-31 18:57:41,829] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-onnx-detector from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-onnx-detector\manifest.json
+[2026-05-31 18:57:52,755] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-blur-augmentation from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-blur-augmentation\manifest.json
+[2026-05-31 18:57:52,766] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-onnx-detector from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-onnx-detector\manifest.json
+[2026-05-31 18:58:28,768] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-blur-augmentation from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-blur-augmentation\manifest.json
+[2026-05-31 18:58:28,785] INFO cvat.apps.custom_operations.registry_loader: Synced custom operation sample-onnx-detector from D:\AAAFanny\work\20260510CVAT-web\cvat-develop\custom_operations_registry\sample-onnx-detector\manifest.json
+[2026-05-31 19:00:07,045] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 158
+[2026-05-31 19:00:07,315] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-31 19:00:07,317] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 3004
+[2026-05-31 19:00:07,908] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 262
+[2026-05-31 19:00:08,332] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 380
+[2026-05-31 19:00:10,062] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 284
+[2026-05-31 19:00:10,099] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42195
+[2026-05-31 19:00:10,486] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-31 19:00:10,684] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 516
+[2026-05-31 19:00:10,712] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-31 19:00:10,737] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-31 19:00:10,756] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-31 19:00:10,946] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-31 19:00:11,102] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-31 19:00:11,223] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-31 19:00:12,285] INFO django.server: "GET /static/logo.svg HTTP/1.1" 200 933
+[2026-05-31 19:00:13,007] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-31 19:00:13,020] INFO django.server: "GET /api/tasks?org=&page=1&page_size=10 HTTP/1.1" 200 52
+[2026-05-31 19:00:13,390] INFO django.server: "GET /api/tasks?org=&page=1&page_size=10 HTTP/1.1" 200 52
+[2026-05-31 19:00:13,850] INFO django.server: "GET /api/lambda/requests?org= HTTP/1.1" 200 2
+[2026-05-31 19:00:42,886] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 947
+[2026-05-31 19:00:43,071] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 803
+[2026-05-31 19:01:01,504] INFO django.server: "POST /api/custom-operations/definitions/2/execute?org= HTTP/1.1" 200 1396
+[2026-05-31 19:01:40,359] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 624
+[2026-05-31 19:03:12,983] INFO django.server: "GET /api/server/health/?format=json&org= HTTP/1.1" 200 173
+[2026-05-31 19:03:15,089] WARNING django.request: Not Found: /api/user-agreements
+[2026-05-31 19:03:15,097] WARNING django.server: "GET /api/user-agreements?org= HTTP/1.1" 404 2954
+[2026-05-31 19:03:15,233] INFO django.server: "GET /api/server/about?org= HTTP/1.1" 200 388
+[2026-05-31 19:03:15,263] INFO django.server: "GET /api/schema/?scheme=json&org= HTTP/1.1" 200 42250
+[2026-05-31 19:03:15,305] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 256
+[2026-05-31 19:03:15,609] INFO django.server: "GET /api/users/self?org= HTTP/1.1" 200 273
+[2026-05-31 19:03:16,135] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-31 19:03:16,342] INFO django.server: "GET /api/server/annotation/formats?org= HTTP/1.1" 200 503
+[2026-05-31 19:03:16,431] INFO django.server: "GET /api/invitations?filter=%7B%22and%22:%5B%7B%22%3D%3D%22:%5B%7B%22var%22:%22user_id%22%7D,%221%22%5D%7D,+%7B%22%3D%3D%22:%5B%7B%22var%22:%22accepted%22%7D,false%5D%7D%5D%7D HTTP/1.1" 200 52
+[2026-05-31 19:03:16,444] INFO django.server: "HEAD /api/lambda/functions?org= HTTP/1.1" 200 0
+[2026-05-31 19:03:16,458] INFO django.server: "GET /api/requests?org=&page_size=500&page=1 HTTP/1.1" 200 52
+[2026-05-31 19:03:16,472] INFO django.server: "GET /api/server/plugins?org= HTTP/1.1" 200 32
+[2026-05-31 19:03:16,797] ERROR cvat.apps.lambda_manager.views: Failed to parse lambda function metadata
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 177, in __init__
+    self.kind = FunctionKind(kind)
+                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 714, in __call__
+    return cls.__new__(cls, value)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86178\.conda\envs\rgbtsar\Lib\enum.py", line 1137, in __new__
+    raise ve_exc
+ValueError: 'augmentation' is not a valid FunctionKind
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 116, in list
+    yield LambdaFunction(self, item)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat\apps\lambda_manager\views.py", line 179, in __init__
+    raise InvalidFunctionMetadataError(
+cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augmentation lambda function has unknown type: 'augmentation'
+[2026-05-31 19:03:16,905] INFO django.server: "GET /api/lambda/functions?org= HTTP/1.1" 200 225
+[2026-05-31 19:03:17,615] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=augmentation HTTP/1.1" 200 786
+[2026-05-31 19:03:17,646] INFO django.server: "GET /api/custom-operations/definitions?org=&kind=model HTTP/1.1" 200 889
+[2026-05-31 19:03:17,679] INFO django.server: "GET /api/organizations?org=&page_size=10&sort=slug HTTP/1.1" 200 52
+[2026-05-31 19:03:28,244] INFO django.server: "POST /api/custom-operations/definitions/2/execute?org= HTTP/1.1" 200 1375
+[2026-05-31 19:04:46,662] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 623

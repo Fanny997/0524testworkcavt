@@ -7,10 +7,11 @@
 .cvat-workflows-page {
     @include cvat-resource-page;
     padding: $grid-unit-size * 2;
-    min-height: 100%;
+    height: calc(100vh - #{$header-height});
     display: flex;
     flex-direction: column;
     gap: $grid-unit-size * 2;
+    overflow: hidden;
 }
 
 .cvat-workflows-page-header {
@@ -18,6 +19,7 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: $grid-unit-size * 2;
+    flex-shrink: 0;
 
     .cvat-title {
         padding-top: 0;
@@ -27,6 +29,54 @@
 .cvat-workflows-layout {
     flex: 1;
     min-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+}
+
+.cvat-workflows-left {
+    height: 100%;
+    min-width: 260px;
+    flex-shrink: 0;
+}
+
+.cvat-workflows-resizer {
+    width: 6px;
+    cursor: col-resize;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    z-index: 10;
+    user-select: none;
+    transition: background 0.2s ease;
+
+    &:hover {
+        background: rgba(#1890ff, 0.1);
+    }
+}
+
+.cvat-workflows-resizer-active {
+    background: rgba(#1890ff, 0.15) !important;
+}
+
+.cvat-workflows-resizer-handle {
+    width: 2px;
+    height: 40px;
+    background: $border-color-1;
+    border-radius: 1px;
+    transition: background 0.2s ease;
+}
+
+.cvat-workflows-resizer:hover .cvat-workflows-resizer-handle,
+.cvat-workflows-resizer-active .cvat-workflows-resizer-handle {
+    background: #1890ff;
+}
+
+.cvat-workflows-right {
+    height: 100%;
+    min-width: 400px;
 }
 
 .cvat-workflows-panel {
@@ -40,10 +90,17 @@
     flex-direction: column;
 }
 
+.cvat-workflows-panel-sticky {
+    position: sticky;
+    top: 0;
+    max-height: 100%;
+}
+
 .cvat-workflows-list {
     padding: 0 $grid-unit-size $grid-unit-size $grid-unit-size;
     overflow: auto;
-    max-height: calc(100vh - #{$header-height} - #{$grid-unit-size * 20});
+    flex: 1;
+    min-height: 0;
 }
 
 .cvat-workflow-operation-row {
@@ -77,8 +134,95 @@
 }
 
 .cvat-workflow-builder-panel {
-    padding: $grid-unit-size * 2;
+    padding: 0;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.cvat-workflow-builder-top {
+    overflow-y: auto;
+    padding: $grid-unit-size * 2 $grid-unit-size * 2 0 $grid-unit-size * 2;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $border-color-1;
+        border-radius: 3px;
+    }
+}
+
+.cvat-workflow-builder-resizer {
+    height: 6px;
+    cursor: row-resize;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    z-index: 10;
+    user-select: none;
+    transition: background 0.2s ease;
+
+    &:hover {
+        background: rgba(#1890ff, 0.1);
+    }
+}
+
+.cvat-workflow-builder-resizer-active {
+    background: rgba(#1890ff, 0.15) !important;
+}
+
+.cvat-workflow-builder-resizer-handle {
+    width: 40px;
+    height: 2px;
+    background: $border-color-1;
+    border-radius: 1px;
+    transition: background 0.2s ease;
+}
+
+.cvat-workflow-builder-resizer:hover .cvat-workflow-builder-resizer-handle,
+.cvat-workflow-builder-resizer-active .cvat-workflow-builder-resizer-handle {
+    background: #1890ff;
+}
+
+.cvat-workflow-builder-bottom {
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid $border-color-1;
+
+    > .ant-tabs {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        > .ant-tabs-nav {
+            flex-shrink: 0;
+            margin-bottom: 0;
+            padding: 0 $grid-unit-size * 1.5;
+        }
+
+        > .ant-tabs-content-holder {
+            flex: 1;
+            min-height: 0;
+
+            > .ant-tabs-content {
+                height: 100%;
+
+                > .ant-tabs-tabpane-active {
+                    height: 100%;
+                    overflow: hidden;
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
+        }
+    }
 }
 
 .cvat-workflow-builder-header {
@@ -102,8 +246,17 @@
 .cvat-workflow-builder-form {
     overflow: auto;
     min-height: 0;
-    max-height: calc(100vh - #{$header-height} - #{$grid-unit-size * 38});
+    max-height: calc(50vh - #{$header-height} - #{$grid-unit-size * 12});
     padding-right: $grid-unit-size;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $border-color-1;
+        border-radius: 3px;
+    }
 }
 
 .cvat-workflow-field {
@@ -122,12 +275,23 @@
     justify-content: space-between;
     align-items: center;
     gap: $grid-unit-size * 2;
+    flex-shrink: 0;
 }
 
 .cvat-workflow-step-list {
     overflow: auto;
-    max-height: calc(100vh - #{$header-height} - #{$grid-unit-size * 48});
-    padding-right: $grid-unit-size;
+    flex: 1;
+    min-height: 0;
+    padding: $grid-unit-size * 1.5;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $border-color-1;
+        border-radius: 3px;
+    }
 }
 
 .cvat-workflow-step {
@@ -136,10 +300,45 @@
     padding: $grid-unit-size * 1.5;
     margin-bottom: $grid-unit-size;
     background: $background-color-1;
+    cursor: pointer;
+    transition: box-shadow 0.2s ease, border-color 0.2s ease;
+    position: relative;
+
+    &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        border-radius: $border-radius-base 0 0 $border-radius-base;
+        background: $border-color-1;
+    }
+
+    &:hover {
+        box-shadow: $box-shadow-base;
+        border-color: $border-color-hover;
+    }
+}
+
+.cvat-workflow-step-running {
+    &::before {
+        background: #1890ff;
+    }
+}
+
+.cvat-workflow-step-success {
+    &::before {
+        background: #52c41a;
+    }
 }
 
 .cvat-workflow-step-failed {
     border-color: $danger-icon-color;
+
+    &::before {
+        background: #ff4d4f;
+    }
 }
 
 .cvat-workflow-step-header {
@@ -168,10 +367,200 @@
     word-break: break-word;
 }
 
+.cvat-workflow-step-result-toggle {
+    margin-top: $grid-unit-size * 0.5;
+}
+
+.cvat-workflow-step-result-collapsed {
+    margin-top: $grid-unit-size * 0.5;
+    padding: $grid-unit-size;
+    background: $background-color-2;
+    border: 1px dashed $border-color-1;
+    border-radius: $border-radius-base;
+    text-align: center;
+}
+
 .cvat-workflow-drawer-form {
     display: flex;
     flex-direction: column;
     gap: $grid-unit-size;
+}
+
+// ---- 最终输出结果区域 ----
+
+.cvat-workflow-output-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.cvat-workflow-output-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: $grid-unit-size * 1.5 $grid-unit-size * 1.5 0 $grid-unit-size * 1.5;
+    flex-shrink: 0;
+}
+
+.cvat-workflow-output-content {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    padding: $grid-unit-size * 1.5;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $border-color-1;
+        border-radius: 3px;
+    }
+}
+
+// ---- 图片展示网格 ----
+
+.cvat-workflow-image-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: $grid-unit-size;
+}
+
+.cvat-workflow-image-item {
+    border: 1px solid $border-color-1;
+    border-radius: $border-radius-base;
+    overflow: hidden;
+    background: $background-color-1;
+    transition: box-shadow 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: $box-shadow-base;
+    }
+
+    .ant-image {
+        width: 100%;
+        display: block;
+
+        img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            display: block;
+        }
+    }
+}
+
+.cvat-workflow-image-name {
+    padding: $grid-unit-size * 0.25 $grid-unit-size * 0.5;
+    font-size: 12px;
+    color: $text-color-secondary;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    background: $background-color-1;
+}
+
+.cvat-workflow-output-pagination {
+    display: flex;
+    justify-content: center;
+    padding: $grid-unit-size 0;
+    flex-shrink: 0;
+}
+
+// ---- 文本文件展示 ----
+
+.cvat-workflow-text-files {
+    display: flex;
+    flex-direction: column;
+    gap: $grid-unit-size * 0.75;
+}
+
+.cvat-workflow-file-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: $grid-unit-size $grid-unit-size * 1.5;
+    border: 1px solid $border-color-1;
+    border-radius: $border-radius-base;
+    background: $background-color-1;
+    transition: box-shadow 0.2s ease;
+
+    &:hover {
+        box-shadow: $box-shadow-base;
+    }
+}
+
+.cvat-workflow-file-card-left {
+    display: flex;
+    align-items: center;
+    gap: $grid-unit-size;
+    min-width: 0;
+    flex: 1;
+}
+
+.cvat-workflow-file-card-icon {
+    font-size: 20px;
+    color: #1890ff;
+    flex-shrink: 0;
+}
+
+.cvat-workflow-file-card-name {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// ---- 步骤详情弹窗 ----
+
+.cvat-workflow-step-detail {
+    .ant-descriptions-item-label {
+        font-weight: 500;
+    }
+}
+
+.cvat-workflow-step-detail-json {
+    max-height: 300px;
+    overflow: auto;
+    background: $background-color-2;
+    border-radius: $border-radius-base;
+    padding: $grid-unit-size;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-size: 12px;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: $border-color-1;
+        border-radius: 3px;
+    }
+}
+
+// ---- 文本内容弹窗 ----
+
+.cvat-workflow-text-content {
+    max-height: 60vh;
+    overflow: auto;
+    background: $background-color-2;
+    border-radius: $border-radius-base;
+    padding: $grid-unit-size * 1.5;
+    white-space: pre-wrap;
+    word-break: break-word;
+    font-family: monospace;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+// ---- 精选输出区域 ----
+
+.cvat-workflow-preview-result {
+    padding: $grid-unit-size * 1.5;
 }
 
 .cvat-workflows-loading {

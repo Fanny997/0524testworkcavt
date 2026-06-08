@@ -1,0 +1,12 @@
+
+d:\AAAFanny\work\20260510CVAT-web\cvat-develop\cvat-ui\src\components\custom-workflows-page\custom-workflows-page.tsx
+   41:56  error  'DownOutlined' is defined but never used          @typescript-eslint/no-unused-vars
+   43:8   error  'config' is defined but never used                @typescript-eslint/no-unused-vars
+  381:60  error  Do not nest ternary expressions                   no-nested-ternary
+  459:30  error  Do not nest ternary expressions                   no-nested-ternary
+  966:60  error  `{workflow.length}` must be placed on a new line  react/jsx-one-expression-per-line
+  966:77  error  ` 个步骤` must be placed on a new line               react/jsx-one-expression-per-line
+
+✖ 6 problems (6 errors, 0 warnings)
+  2 errors and 0 warnings potentially fixable with the `--fix` option.
+
