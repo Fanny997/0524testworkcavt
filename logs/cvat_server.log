@@ -6589,3 +6589,5 @@ cvat.apps.lambda_manager.views.InvalidFunctionMetadataError: sample-blur-augment
 [2026-06-09 00:32:21,626] WARNING django.request: Bad Request: /api/custom-operations/definitions/2/execute
 [2026-06-09 00:32:21,627] WARNING django.server: "POST /api/custom-operations/definitions/2/execute?org= HTTP/1.1" 400 29
 [2026-06-09 00:32:32,534] INFO django.server: "GET /api/projects?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-06-09 00:32:32,752] INFO django.server: "GET /api/projects?org=&page=1&page_size=12 HTTP/1.1" 200 52
+[2026-06-09 00:33:15,444] INFO django.server: "POST /api/events?org= HTTP/1.1" 201 626
